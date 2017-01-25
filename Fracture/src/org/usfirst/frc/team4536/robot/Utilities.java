@@ -226,9 +226,19 @@ public final class Utilities {
 			return 0;
 	}
 	
+	/**
+	 * @author Theo
+	 * @param ang This can be any angle.
+	 * @return the inputted angle once it has been converted to a scale from -180 to 180
+	 */
 	public static double angleConverter(double ang){
+		
+		ang = ang % 360;
 		if(ang > 180){
-			ang = ang - 360;
+			ang = ang -360;
+		}
+		if(ang < -180){
+			ang = ang + 360;
 		}
 		return(ang);
 	}
@@ -240,7 +250,7 @@ public final class Utilities {
 	 * @return The difference between starting angle and desired angle or the difference between starting angle and the opposite of the desired angle depending on which is smaller.
 	 */
 		
-	public static double shortestAngle1(double ang, double desAng){
+	public static double shortestAngle(double ang, double desAng){
 
 		ang = angleConverter(ang);
 		desAng = angleConverter(desAng);
