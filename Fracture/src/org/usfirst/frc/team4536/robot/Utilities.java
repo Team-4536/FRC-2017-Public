@@ -206,7 +206,7 @@ public final class Utilities {
 	}
 	
 	/**
-	 *@author Audrey
+	 *@author Audrey & Theo
 	 *@param startingAngle The angle the robot is turning from
 	 *@param desiredAngle The angle the robot is turning to
 	 *@return The difference between those two angles as a number from -180 to 180
@@ -214,21 +214,29 @@ public final class Utilities {
 	 * -20
 	 */
 	public static final double angleDifference(double startingAngle, double desiredAngle){
-		double difference;
-		difference = startingAngle - desiredAngle;
-		if (difference > -180 && difference <= 180)
-			return -difference;
-		else if (difference <= -180)
-			return -(difference + 360);
-		else if (difference > 180)
-			return -(difference - 360);
-		else 
-			return 0;
+		startingAngle = angleConverter(startingAngle);
+		desiredAngle = angleConverter(desiredAngle);
+		double difference = desiredAngle -startingAngle;
+		if(difference > 180)
+			difference = 360 - difference;
+		if (difference < -180)
+			difference = 360 + difference;
+		return difference;
 	}
 	
+	/**
+	 * @author Theo
+	 * @param ang This can be any angle.
+	 * @return the inputted angle once it has been converted to a scale from -180 to 180
+	 */
 	public static double angleConverter(double ang){
+		
+		ang = ang % 360;
 		if(ang > 180){
-			ang = ang - 360;
+			ang = ang -360;
+		}
+		if(ang < -180){
+			ang = ang + 360;
 		}
 		return(ang);
 	}
@@ -240,37 +248,29 @@ public final class Utilities {
 	 * @return The difference between starting angle and desired angle or the difference between starting angle and the opposite of the desired angle depending on which is smaller.
 	 */
 		
-	public static double shortestAngle1(double ang, double desAng){
+	public static double shortestAngle(double ang, double desAng){
 
 		ang = angleConverter(ang);
 		desAng = angleConverter(desAng);
 		double backAng;
-		if(desAng <= 0.0){
+		if(desAng <= 0.0)
 			backAng = desAng + 180.0;
-		}
-		else{
+		else
 			backAng = desAng - 180.0; 
-		}
 		double faceForward = desAng - ang;
 		double faceBackward = backAng - ang;
-		if(faceForward < -180){
+		if(faceForward < -180)
 			faceForward = 360 + faceForward;
-		}
-		else if(faceForward > 180){
+		else if(faceForward > 180)
 			faceForward = faceForward -360;
-		}
-		if(faceBackward < -180){
+		if(faceBackward < -180)
 			faceBackward = 360 + faceBackward;
-		}
-		else if(faceBackward > 180){
+		else if(faceBackward > 180)
 		 	faceBackward = faceBackward -360;
-		}
-		if(Math.abs(faceForward) <= Math.abs(faceBackward)){
+		if(Math.abs(faceForward) <= Math.abs(faceBackward))
 			return(faceForward);
-		}
-		else{
+		else
 			return(faceBackward);
-		}
 	 }
 	
 	/**
