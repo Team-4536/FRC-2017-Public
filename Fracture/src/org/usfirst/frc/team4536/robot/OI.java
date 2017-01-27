@@ -8,12 +8,13 @@ import edu.wpi.first.wpilibj.Joystick;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	
-	public static ModifiedJoystick primaryStick;
-	public static ModifiedJoystick secondaryStick;
+	public static Joystick primaryRightStick;
+	public static Joystick primaryLeftStick;
+	public static Joystick secondaryStick;
 	
 	public OI() {
-		primaryStick = new ModifiedJoystick(RobotMap.PRIMARY_STICK);
-		secondaryStick = new ModifiedJoystick(RobotMap.SECONDARY_STICK);
+		primaryRightStick = new Joystick(RobotMap.PRIMARY_RIGHT_STICK);
+		primaryLeftStick = new Joystick(RobotMap.PRIMARY_LEFT_STICK);
+		secondaryStick = new Joystick(RobotMap.SECONDARY_STICK);
 	}
 }
