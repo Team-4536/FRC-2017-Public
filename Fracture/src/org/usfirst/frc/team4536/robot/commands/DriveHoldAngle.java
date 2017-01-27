@@ -1,8 +1,6 @@
 package org.usfirst.frc.team4536.robot.commands;
 
-import org.usfirst.frc.team4536.robot.Constants;
 import org.usfirst.frc.team4536.robot.OI;
-import org.usfirst.frc.team4536.robot.Utilities;
 
 //TODO THIS DOES NOT WORK. Don't worry i'll fix it. ;)
 //Do not try to make anything that builds upon it.
@@ -14,10 +12,12 @@ import org.usfirst.frc.team4536.robot.Utilities;
 public class DriveHoldAngle extends CommandBase {
 	
 	private double forwardThrottle, strafeThrottle;
-	double desiredAngle = 0;
+	double desiredAngle;
 	
-    public DriveHoldAngle() {
+    public DriveHoldAngle(double inputAngle) {
 		requires(driveTrain);
+		
+		desiredAngle = inputAngle;
     }
     
     protected void initialize() {
@@ -27,8 +27,8 @@ public class DriveHoldAngle extends CommandBase {
     
     protected void execute() {
     	
-    	forwardThrottle = Utilities.deadZone(-OI.primaryStick.getY(), Constants.DEAD_ZONE);
-		strafeThrottle = Utilities.deadZone(OI.primaryStick.getX(), Constants.DEAD_ZONE);
+    	forwardThrottle = -OI.primaryStick.getY();
+		strafeThrottle = OI.primaryStick.getX();
 		
 		driveTrain.DriveHoldAngle(forwardThrottle, strafeThrottle, desiredAngle);
     	

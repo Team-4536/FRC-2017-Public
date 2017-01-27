@@ -22,13 +22,12 @@ import org.usfirst.frc.team4536.robot.Utilities;
  */
 public class Robot extends IterativeRobot {
 
-	public static OI oi;
+	//public static OI oi;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	
 	Command drive;
-	//Command driveHoldAngle;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -38,13 +37,14 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
 		camera0.setResolution(Constants.CAMERA_RESOLUTION_WIDTH, Constants.CAMERA_RESOLUTION_HEIGHT);
-		oi = new OI();
+		//oi = new OI();
 		// chooser.addDefault("Default Auto", );
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		
 		drive = new Drive();
-		//driveHoldAngle = new DriveHoldAngle();
+		
+		OI.ButtonHandling();
 		
 	}
 
