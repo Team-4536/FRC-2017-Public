@@ -285,4 +285,16 @@ public final class Utilities {
 		}
 	}
 	
+	
+	public static double scale(double a, double b, double scaleParam){
+		double newA;
+		if((Math.abs(a) + Math.abs(b)) > scaleParam){
+			newA = a * scaleParam/(Math.abs(a)+Math.abs(b));		
+		}
+		else{
+			newA = a;
+		}
+		return newA;
+	}
+	
 }

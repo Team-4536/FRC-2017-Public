@@ -8,6 +8,7 @@ public class Constants {
 	public static final double FORWARD_SPEED_CURVE = 0;
 	public static final double TURN_SPEED_CURVE = 0;
 	public static final double STRAFE_SPEED_CURVE = 0;
+	public static final double SCALE_PARAM = 0.8; //this needs fine tuning
 
 	public static final int CAMERA_RESOLUTION_WIDTH = 1280;
 	public static final int CAMERA_RESOLUTION_HEIGHT = 780;
