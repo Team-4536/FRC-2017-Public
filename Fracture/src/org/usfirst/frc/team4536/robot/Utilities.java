@@ -184,7 +184,7 @@ public final class Utilities {
 	 * -20
 	 */
 	public static final double angleDifference(double startingAngle, double desiredAngle){
-		double difference = startingAngle - desiredAngle;
+		double difference = desiredAngle - startingAngle;
 		return angleConverter(difference);
 	}
 	
