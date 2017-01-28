@@ -136,4 +136,8 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
+	
+	public void testInit(){
+		
+	}
 }
