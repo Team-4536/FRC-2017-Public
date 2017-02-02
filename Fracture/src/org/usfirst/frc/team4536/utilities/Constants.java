@@ -33,10 +33,10 @@ public class Constants {
 	//Profile constants
 	//These might need changing, they're mostly just copied from last year.
 	
-	public static final double FORWARD_GYRO_PROPORTIONALITY = 0.07; //Measured in throttle per inch.
+	public static final double FORWARD_NAVX_PROPORTIONALITY = 0.07; //Measured in throttle per inch.
 	public static final double DEFAULT_SPEED = 10; //Measured in meters per second.
 	public static final double DEFAULT_ACCELERATION = 4; //Measured in meters per second squared.
     public static final double PROFILE_TIMEOUT_OFFSET = .5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 	
-	
+    public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT = 16.; //Ticks per inch
 }

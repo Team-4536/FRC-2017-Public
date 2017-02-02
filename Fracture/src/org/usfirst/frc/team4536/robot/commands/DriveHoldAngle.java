@@ -2,9 +2,6 @@ package org.usfirst.frc.team4536.robot.commands;
 
 import org.usfirst.frc.team4536.robot.OI;
 
-//TODO THIS DOES NOT WORK. Don't worry i'll fix it. ;)
-//Do not try to make anything that builds upon it.
-
 /**
  * @author Noah
  * Class to drive robot-centric while holding an angle
