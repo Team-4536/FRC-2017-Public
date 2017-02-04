@@ -16,6 +16,7 @@ public class CommandBase extends Command {
 			RobotMap.STRAFE_ENCODER_CHANNEL_B, RobotMap.FORWARD_ENCODER_CHANNEL_A, RobotMap.FORWARD_ENCODER_CHANNEL_B);
 	
 	public static Climber climber = new Climber(RobotMap.CLIMBER_MOTOR);
+	public static GearSlide gearSlide = new GearSlide(RobotMap.GEAR_SLIDE_MOTOR);
 	
     public CommandBase() {
     }
