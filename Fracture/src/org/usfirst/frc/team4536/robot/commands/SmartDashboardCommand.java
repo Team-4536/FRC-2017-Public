@@ -23,6 +23,12 @@ public class SmartDashboardCommand extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
+    
+    /**
+     * @author Eddie
+     * displays values in the Smart Dashboard
+     */
+    
     protected void execute() {
     	
     	//NavX
