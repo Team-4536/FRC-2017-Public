@@ -47,7 +47,6 @@ public class Robot extends IterativeRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		smartDashboardCommand = new SmartDashboardCommand();
-		runClimber = new RunClimber();
 		driveProfile = new DriveMotionProfile(2.0, 15.0, 10.0, 0, -135);
 		cycleTimer = new EnhancedTimer();
 		holdAngle = new HoldAngle(0);

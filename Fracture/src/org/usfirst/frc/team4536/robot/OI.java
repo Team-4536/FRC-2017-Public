@@ -23,10 +23,10 @@ public class OI {
 	public static Button holdMiddle;
 	public static Button holdRight;
 	public static Button fieldCentric;
+	public static Button autoRotate;
 	
 	public static Button plusDegree;
 	public static Button minusDegree;
-	
 
 	public static double feederStationAngle;
 	public static Button switchSao;
@@ -35,11 +35,12 @@ public class OI {
 
 	
 	public static void ButtonHandling() {
-		holdFeeder = new JoystickButton(primaryLeftStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdLeft = new JoystickButton(primaryLeftStick, RobotMap.HOLD_LEFT_BUTTON);
-		holdMiddle = new JoystickButton(primaryLeftStick, RobotMap.HOLD_MIDDLE_BUTTON);
-		holdRight = new JoystickButton(primaryLeftStick, RobotMap.HOLD_RIGHT_BUTTON);
-		fieldCentric = new JoystickButton(primaryLeftStick, RobotMap.HOLD_CENTER_BUTTON);
+		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
+		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
+		holdMiddle = new JoystickButton(primaryRightStick, RobotMap.HOLD_MIDDLE_BUTTON);
+		holdRight = new JoystickButton(primaryRightStick, RobotMap.HOLD_RIGHT_BUTTON);
+		fieldCentric = new JoystickButton(primaryRightStick, RobotMap.HOLD_CENTER_BUTTON);
+		autoRotate = new JoystickButton(primaryRightStick, RobotMap.HOLD_SPECIAL_BUTTON);
 		
 
 		plusDegree = new JoystickButton(primaryLeftStick, RobotMap.PLUS_DEGREE_BUTTON);
@@ -48,17 +49,17 @@ public class OI {
 		holdFeeder.whenPressed(new DriveHoldAngle(feederStationAngle));
 		
     switchSao = new JoystickButton(secondaryStick, RobotMap.SAO_SWITCH);
-		switchPrimary = new JoystickButton(primaryLeftStick, RobotMap.PRIMARY_SWITCH);
+		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
 		climb = new JoystickButton(secondaryStick, RobotMap.CLIMB);
 		
 		holdLeft.whenPressed(new DriveHoldAngle(Constants.LEFT_PEG_ANGLE));
 		holdMiddle.whenPressed(new DriveHoldAngle(Constants.MIDDLE_PEG_ANGLE));
 		holdRight.whenPressed(new DriveHoldAngle(Constants.RIGHT_PEG_ANGLE));
-
 		fieldCentric.whenPressed(new HoldAngle(Constants.RIGHT_PEG_ANGLE));
+		autoRotate.whenPressed(new AutoRotateDriveHoldAngle(Constants.RIGHT_PEG_ANGLE));
 
 		switchSao = new JoystickButton(secondaryStick, RobotMap.SAO_SWITCH);
-		switchPrimary = new JoystickButton(primaryLeftStick, RobotMap.PRIMARY_SWITCH);
+		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
 		climb = new JoystickButton(secondaryStick, RobotMap.CLIMB);
 		
 		plusDegree.whenPressed(new AngleAdjustment(true));
@@ -69,6 +70,7 @@ public class OI {
 		holdMiddle.whenReleased(new Drive());
 		holdRight.whenReleased(new Drive());
 		fieldCentric.whenReleased(new Drive());
+		autoRotate.whenReleased(new Drive());
 
 		switchSao.whenPressed(new SaoDrive());
 		switchPrimary.whenPressed(new Drive());

@@ -31,6 +31,7 @@ public class RobotMap {
 	public static final int HOLD_MIDDLE_BUTTON = 2;
 	public static final int HOLD_RIGHT_BUTTON = 5;
 	public static final int HOLD_CENTER_BUTTON = 3;
+	public static final int HOLD_SPECIAL_BUTTON = 9;
 	
 	public static final int PLUS_DEGREE_BUTTON = 6;
 	public static final int MINUS_DEGREE_BUTTON = 7;

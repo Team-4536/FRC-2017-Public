@@ -38,16 +38,16 @@ public class SmartDashboardCommand extends CommandBase {
     	SmartDashboard.putNumber("Roll: ", driveTrain.getNavX().getRoll());
     	
     	//Joysticks
-    	SmartDashboard.putNumber("Primary Joystick Y: ", OI.primaryLeftStick.getY());		
-    	SmartDashboard.putNumber("Primary Joystick X: ", OI.primaryLeftStick.getX());		
+    	SmartDashboard.putNumber("Right Joystick Y: ", OI.primaryRightStick.getY());		
+    	SmartDashboard.putNumber("Right Joystick X: ", OI.primaryRightStick.getX());		
     	SmartDashboard.putNumber("Secondary Joystick Y: ", OI.secondaryStick.getY());		
     	SmartDashboard.putNumber("Secondary Joystick X: ", OI.secondaryStick.getX());		
-    	SmartDashboard.putNumber("Tertiary Joystick Y: ", OI.primaryRightStick.getY());		
-
-    	SmartDashboard.putNumber("Tertiary Joystick X: ", OI.primaryRightStick.getX());
+    	SmartDashboard.putNumber("Left Joystick Y: ", OI.primaryLeftStick.getY());		
+    	SmartDashboard.putNumber("Left Joystick X: ", OI.primaryLeftStick.getX());
     	
     	//TESTS
     	SmartDashboard.putNumber("Last Desired Angle", driveTrain.getLastDesiredAngle());
+    	SmartDashboard.putNumber("Joystick Angle", OI.primaryRightStick.getDirectionDegrees());
 
     }
     

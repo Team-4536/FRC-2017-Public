@@ -23,8 +23,8 @@ public class DriveHoldAngle extends CommandBase {
     }
     
     protected void execute() {
-    	forwardThrottle = -OI.primaryLeftStick.getModY();
-		strafeThrottle = OI.primaryLeftStick.getModX();
+    	forwardThrottle = -OI.primaryRightStick.getModY();
+		strafeThrottle = OI.primaryRightStick.getModX();
 		
 		driveTrain.DriveHoldAngle(forwardThrottle, strafeThrottle, desiredAngle);
     }
