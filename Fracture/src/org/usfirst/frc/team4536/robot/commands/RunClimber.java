@@ -7,17 +7,16 @@ import org.usfirst.frc.team4536.robot.OI;
  * Command to run the climber with a joystick
  */
 public class RunClimber extends CommandBase {
-
-    public RunClimber() {
+	double climbSpeed;
+    public RunClimber(double speed) {
         requires(climber);
+        climbSpeed = speed;
     }
-    
     protected void initialize() {
-    	climber.setClimber(0);
     }
     
     protected void execute() {
-    	climber.setClimber(-OI.secondaryStick.getModY());
+    	climber.setClimber(climbSpeed);
     }
     
     protected boolean isFinished() {

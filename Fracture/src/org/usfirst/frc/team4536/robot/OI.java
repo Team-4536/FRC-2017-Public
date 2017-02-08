@@ -32,6 +32,10 @@ public class OI {
 	public static Button switchSao;
 	public static Button switchPrimary;
 	public static Button climb;
+	
+	public static Button fullSpeedClimb;
+	public static Button slowClimb;
+	public static Button stopClimb;
 
 	
 	public static void ButtonHandling() {
@@ -41,7 +45,6 @@ public class OI {
 		holdRight = new JoystickButton(primaryRightStick, RobotMap.HOLD_RIGHT_BUTTON);
 		fieldCentric = new JoystickButton(primaryRightStick, RobotMap.HOLD_CENTER_BUTTON);
 		autoRotate = new JoystickButton(primaryRightStick, RobotMap.HOLD_SPECIAL_BUTTON);
-		
 
 		plusDegree = new JoystickButton(primaryLeftStick, RobotMap.PLUS_DEGREE_BUTTON);
 		minusDegree = new JoystickButton(primaryLeftStick, RobotMap.MINUS_DEGREE_BUTTON);
@@ -49,6 +52,8 @@ public class OI {
 		holdFeeder.whenPressed(new DriveHoldAngle(feederStationAngle));
 		
     switchSao = new JoystickButton(secondaryStick, RobotMap.SAO_SWITCH);
+    	fullSpeedClimb = new JoystickButton(secondaryStick, RobotMap.FULL_CLIMB);
+		slowClimb = new JoystickButton(secondaryStick, RobotMap.HALF_CLIMB);
 		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
 		climb = new JoystickButton(secondaryStick, RobotMap.CLIMB);
 		
@@ -57,6 +62,8 @@ public class OI {
 		holdRight.whenPressed(new DriveHoldAngle(Constants.RIGHT_PEG_ANGLE));
 		fieldCentric.whenPressed(new HoldAngle(Constants.RIGHT_PEG_ANGLE));
 		autoRotate.whenPressed(new AutoRotateDriveHoldAngle(Constants.RIGHT_PEG_ANGLE));
+		fullSpeedClimb.whenPressed(new RunClimber(1));
+		slowClimb.whenPressed(new RunClimber(0.5));
 
 		switchSao = new JoystickButton(secondaryStick, RobotMap.SAO_SWITCH);
 		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
@@ -71,10 +78,11 @@ public class OI {
 		holdRight.whenReleased(new Drive());
 		fieldCentric.whenReleased(new Drive());
 		autoRotate.whenReleased(new Drive());
+		fullSpeedClimb.whenReleased(new RunClimber(0));
+		slowClimb.whenReleased(new RunClimber(0));
 
 		switchSao.whenPressed(new SaoDrive());
 		switchPrimary.whenPressed(new Drive());
-		climb.whenPressed(new RunClimber());
 		
 	}
 	

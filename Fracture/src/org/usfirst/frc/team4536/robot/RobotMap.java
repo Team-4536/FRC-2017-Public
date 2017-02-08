@@ -24,21 +24,25 @@ public class RobotMap {
 	public static final int PRIMARY_RIGHT_STICK = 1;
 	public static final int SECONDARY_STICK = 2;
 	
-	//Buttons
+	//Primary Left Buttons
 	
+	public static final int PLUS_DEGREE_BUTTON = 6;
+	public static final int MINUS_DEGREE_BUTTON = 7;
+	
+	//Primary Right Buttons
 	public static final int HOLD_FEEDER_BUTTON = 3;
 	public static final int HOLD_LEFT_BUTTON = 4;
 	public static final int HOLD_MIDDLE_BUTTON = 2;
 	public static final int HOLD_RIGHT_BUTTON = 5;
 	public static final int HOLD_CENTER_BUTTON = 3;
 	public static final int HOLD_SPECIAL_BUTTON = 9;
-	
-	public static final int PLUS_DEGREE_BUTTON = 6;
-	public static final int MINUS_DEGREE_BUTTON = 7;
-	
-	public static final int SAO_SWITCH = 1;
 	public static final int PRIMARY_SWITCH = 1;
+
+	//Secondary Stick Buttons
+	public static final int SAO_SWITCH = 1;
 	public static final int CLIMB = 8;
+	public static final int FULL_CLIMB = 2;
+	public static final int HALF_CLIMB = 4;
 	
 	//Encoders These values are copied from last year and almost definitely incorrect.
 	
