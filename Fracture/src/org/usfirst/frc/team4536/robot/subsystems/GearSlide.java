@@ -15,7 +15,8 @@ public class GearSlide extends Subsystem {
 	 */
 	public GearSlide(int motorPort) {
 		gearSlideMotor = new Servo(motorPort);
-	}//TODO will not work until we replace with servo stuff
+	}
+	//TODO will not work until we replace with servo stuff
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -27,8 +28,10 @@ public class GearSlide extends Subsystem {
     }
     
     /**
-     * @author Jasper
+     * @author Jasper and Eddie
      * @param input, throttle of gear slide motor
+     * 1 is all the way up, 0.3 is all the way down.
+     * 
      */
     
     public void setGearSlide(double input) {
