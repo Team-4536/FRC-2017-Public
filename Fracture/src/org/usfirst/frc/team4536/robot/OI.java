@@ -23,6 +23,7 @@ public class OI {
 	public static Button holdMiddle;
 	public static Button holdRight;
 	public static Button fieldCentric;
+	public static Button autoRotate;
 	
 	public static Button plusDegree;
 	public static Button minusDegree;
@@ -30,7 +31,6 @@ public class OI {
 	public static double feederStationAngle;
 	public static Button switchSao;
 	public static Button switchPrimary;
-	public static Button switchBackup;
 	public static Button climb;
 	
 	public static Button fullSpeedClimb;
@@ -43,31 +43,25 @@ public class OI {
 	public static void ButtonHandling() {
 		
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new DriveHoldAngle(feederStationAngle));
+		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
 		holdFeeder.whenReleased(new Drive());
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
-		holdLeft.whenPressed(new DriveHoldAngle(Constants.LEFT_PEG_ANGLE));
+		holdLeft.whenPressed(new HoldAngle(Constants.LEFT_PEG_ANGLE));
 		holdLeft.whenReleased(new Drive());
 		
 		holdMiddle = new JoystickButton(primaryRightStick, RobotMap.HOLD_MIDDLE_BUTTON);
-		holdMiddle.whenPressed(new DriveHoldAngle(Constants.MIDDLE_PEG_ANGLE));
+		holdMiddle.whenPressed(new HoldAngle(Constants.MIDDLE_PEG_ANGLE));
 		holdMiddle.whenReleased(new Drive());
 		
 		holdRight = new JoystickButton(primaryRightStick, RobotMap.HOLD_RIGHT_BUTTON);
-		holdRight.whenPressed(new DriveHoldAngle(Constants.RIGHT_PEG_ANGLE));
+		holdRight.whenPressed(new HoldAngle(Constants.RIGHT_PEG_ANGLE));
 		holdRight.whenReleased(new Drive());
 		
 		fieldCentric = new JoystickButton(primaryRightStick, RobotMap.HOLD_CENTER_BUTTON);
-
-		switchBackup.whenPressed(new BackupDrive());
-
 		fieldCentric.whenPressed(new HoldAngle(Constants.RIGHT_PEG_ANGLE));
 		fieldCentric.whenReleased(new Drive());
 		
-		autoRotate = new JoystickButton(primaryRightStick, RobotMap.HOLD_SPECIAL_BUTTON);
-		autoRotate.whenPressed(new AutoRotateDriveHoldAngle(Constants.RIGHT_PEG_ANGLE));
-		autoRotate.whenReleased(new Drive());
 		
 		plusDegree = new JoystickButton(primaryLeftStick, RobotMap.PLUS_DEGREE_BUTTON);
 		plusDegree.whenPressed(new AngleAdjustment(true));
@@ -83,16 +77,33 @@ public class OI {
     fullSpeedClimb.whenReleased(new RunClimber(0));
         
 		slowClimb = new JoystickButton(secondaryStick, RobotMap.SLOW_CLIMB);
+		slowClimb.whenPressed(new RunClimber(Constants.SLOW_CLIMB_SPEED));
+		slowClimb.whenReleased(new RunClimber(0));
+		
+		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
+		switchPrimary.whenPressed(new Drive());
+
+		climb = new JoystickButton(secondaryStick, RobotMap.CLIMB);
+		slidePositionTop = new JoystickButton(secondaryStick, RobotMap.POSITION_TOP);
+		slidePositionTop.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
+		
+		slidePositionGear = new JoystickButton(secondaryStick, RobotMap.POSITION_GEAR);
+		slidePositionGear.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
+		
+		slidePositionMiddle = new JoystickButton(secondaryStick, RobotMap.POSITION_MIDDLE);
 		slidePositionMiddle.whenPressed(new DriveSlidePositions(Constants.MIDDLE_POSITION));
 	
 	}
 	
-	public static void setFeederStationAngle(){
+	public void setFeederStationAngle(){
 		if ((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Blue) {
-			feederStationAngle = Constants.FEEDER_STATION_ANGLE;
+			feederStationAngle = 116.6;
 		}
 		else if ((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Red) {
-			feederStationAngle = -Constants.FEEDER_STATION_ANGLE;	
+			feederStationAngle = -116.6;	
+		}
+		else {
+			feederStationAngle = 0.0;
 		}
 	}
 }

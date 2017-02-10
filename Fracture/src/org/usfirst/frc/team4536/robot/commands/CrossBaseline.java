@@ -34,7 +34,8 @@ public class CrossBaseline extends CommandBase {
     }
 
     // Called once after isFinished returns true
-    protected void end() {    	
+    protected void end() { 
+    	driveTrain.Drive(0.0, 0.0, 0.0);
     }
 
     // Called when another command which requires one or more of the same
