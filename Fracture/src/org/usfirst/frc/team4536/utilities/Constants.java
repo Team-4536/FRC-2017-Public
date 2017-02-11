@@ -33,7 +33,7 @@ public class Constants {
 	//OI
 	public static final double FEEDER_STATION_ANGLE = 116.6;
 	public static final double LEFT_PEG_ANGLE = 60.0;
-	public static final double MIDDLE_PEG_ANGLE = 0;
+	public static final double MIDDLE_PEG_ANGLE = 0.0;
 	public static final double RIGHT_PEG_ANGLE = -60.0;
 	
 	//Profile constants
@@ -41,23 +41,23 @@ public class Constants {
 	
 	public static final double FORWARD_NAVX_PROPORTIONALITY = 0.07; //Measured in throttle per inch.
 
-	public static final double DEFAULT_SPEED = 10; //Measured in meters per second.
-	public static final double DEFAULT_ACCELERATION = 4; //Measured in meters per second squared.
+	public static final double DEFAULT_SPEED = 10.0; //Measured in meters per second.
+	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT = 16.; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT = 16.0; //Ticks per inch
 
     
 	//Angle Adjustments
 	
-	public static final int TRIM_STEP = 3;
+	public static final double TRIM_STEP = 3.0;
     
 	//Sao Drive (These need to be modified to fit needs)
     
-	public static final double SAO_FORWARD_CURVE = 1;
-	public static final double SAO_STRAFE_CURVE = 1;
-	public static final double SAO_FORWARD_MAX_SPEED = 1;
-	public static final double SAO_STRAFE_MAX_SPEED = 1;
+	public static final double SAO_FORWARD_CURVE = 1.0;
+	public static final double SAO_STRAFE_CURVE = 1.0;
+	public static final double SAO_FORWARD_MAX_SPEED = 1.0;
+	public static final double SAO_STRAFE_MAX_SPEED = 1.0;
 	
 	//Field centric
 
@@ -65,13 +65,15 @@ public class Constants {
 	public static final double FIELD_STRAFE_SCALE = 0.8; //throttle
 	public static final double FIELD_P_CONSTANT = 0.015; 
 	public static final double FIELD_SCALE_PARAM = 0.7; //unitless
-	public static final double FIELD_SPEED_CURVE = 1; //unitless
+	public static final double FIELD_SPEED_CURVE = 1.0; //unitless
 	
 	//Field Centric auto-rotate
 	
 	public static final double AUTO_ROTATE_P_CONSTANT = 0.015;
-	public static final double AUTO_ROTATE_SCALE_PARAM = 0.7; //unitless
-	public static final double AUTO_ROTATE_SPEED_CURVE = 1; //unitless
+
+	public static final double AUTO_ROTATE_SCALE_PARAM = 0.7;//unitless
+	public static final double AUTO_ROTATE_SPEED_CURVE = 1.0;//unitless
+
 	
 	//Field Centric Rotate
 	
@@ -88,7 +90,9 @@ public class Constants {
 	//Gear Slide
 	
 	public static final double TOP_POSITION = 1.0;
-	public static final double GEAR_POSITION = 0.6;
-	public static final double MIDDLE_POSITION = 0.4;
+	public static final double GEAR_POSITION = 0.52;
+	public static final double MIDDLE_POSITION = 0.6;//TODO tweak later
+	public static final double UPPER_LIMIT = 1.0;
+	public static final double LOWER_LIMIT = 0.51;
 
 }

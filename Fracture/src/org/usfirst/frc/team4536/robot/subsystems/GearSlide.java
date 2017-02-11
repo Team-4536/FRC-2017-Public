@@ -1,5 +1,8 @@
 package org.usfirst.frc.team4536.robot.subsystems;
 
+import org.usfirst.frc.team4536.utilities.Constants;
+import org.usfirst.frc.team4536.utilities.Utilities;
+
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -35,8 +38,9 @@ public class GearSlide extends Subsystem {
      */
     
     public void setGearSlide(double input) {
+    	double slideLimit = Utilities.limit(input, Constants.LOWER_LIMIT, Constants.UPPER_LIMIT);
+    	gearSlideMotor.set(slideLimit);
     	
-    	gearSlideMotor.set(input);
     }
     
    
