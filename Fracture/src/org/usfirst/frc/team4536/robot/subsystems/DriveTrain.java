@@ -57,6 +57,8 @@ public class DriveTrain extends Subsystem {
     	rightFrontMotor.set(0.0);
     	rightBackMotor.set(0.0);
     	
+    	resetEncoders();
+    	
     	try {
     		navX = new AHRS(SPI.Port.kMXP);
     	} catch(RuntimeException ex) {
@@ -101,22 +103,12 @@ public class DriveTrain extends Subsystem {
     public void DriveAccelLimit(double leftFrontMotorThrottleInput, double leftBackMotorThrottleInput, double rightFrontMotorThrottleInput, double rightBackMotorThrottleInput) {
     	
     	double leftFrontMotorThrottleAccel, leftBackMotorThrottleAccel, rightFrontMotorThrottleAccel, rightBackMotorThrottleAccel;
+    		
+    	leftFrontMotorThrottleAccel = Utilities.accelLimit(leftFrontMotorThrottleInput, leftFrontMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
+        leftBackMotorThrottleAccel = Utilities.accelLimit(leftBackMotorThrottleInput, leftBackMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
+        rightFrontMotorThrottleAccel = Utilities.accelLimit(rightFrontMotorThrottleInput, rightFrontMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
+        rightBackMotorThrottleAccel = Utilities.accelLimit(rightBackMotorThrottleInput, rightBackMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
     	
-    	if(!isFullStop(leftFrontMotorThrottleInput, leftBackMotorThrottleInput, rightFrontMotorThrottleInput, rightBackMotorThrottleInput)){
-    		
-    		leftFrontMotorThrottleAccel = Utilities.accelLimit(leftFrontMotorThrottleInput, leftFrontMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
-        	leftBackMotorThrottleAccel = Utilities.accelLimit(leftBackMotorThrottleInput, leftBackMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
-        	rightFrontMotorThrottleAccel = Utilities.accelLimit(rightFrontMotorThrottleInput, rightFrontMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
-        	rightBackMotorThrottleAccel = Utilities.accelLimit(rightBackMotorThrottleInput, rightBackMotorThrottleAccelPrev, Constants.DRIVE_TRAIN_ACCEL_LIMIT);
-    		
-    	}else{
-    		
-    		leftFrontMotorThrottleAccel = 0.0;
-        	leftBackMotorThrottleAccel = 0.0;
-        	rightFrontMotorThrottleAccel = 0.0;
-        	rightBackMotorThrottleAccel = 0.0;
-    		
-    	}
     	
     	leftFrontMotorThrottleAccelPrev = leftFrontMotorThrottleAccel;
     	leftBackMotorThrottleAccelPrev = leftBackMotorThrottleAccel;
