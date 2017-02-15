@@ -70,8 +70,8 @@ public class MotionProfile extends Profile{
 		 */
 		public double getForwardThrottle(double time){
 			
-			return (Math.cos(Math.toRadians(desiredAngle-robotAngle)) * Utilities.adjustForStiction(idealVelocity(time), Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY));
-			//Utilities.adjustForStiction(idealVelocity(time), Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY)
+			return (Math.cos(Math.toRadians(desiredAngle-robotAngle)) * 
+					Utilities.adjustForStiction(idealVelocity(time), Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY));
 		}
 		
 		/**
@@ -81,9 +81,9 @@ public class MotionProfile extends Profile{
 		 */
 		public double getStrafeThrottle(double time){
 			
-			return (Constants.FORWARD_STRAFE_RATIO * Math.sin(Math.toRadians(desiredAngle - robotAngle)) * Utilities.adjustForStiction(idealVelocity(time), Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY));
-			//Utilities.adjustForStiction(idealVelocity(time), Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY)
-		}
+			return (Constants.FORWARD_STRAFE_RATIO * Math.sin(Math.toRadians(desiredAngle - robotAngle)) * 
+					Utilities.adjustForStiction(idealVelocity(time), Constants.STRAFE_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY));
+				}
 		
 		/**
 		 * @author Liam
