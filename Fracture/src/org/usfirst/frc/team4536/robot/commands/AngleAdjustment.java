@@ -34,9 +34,9 @@ public class AngleAdjustment extends CommandBase {
     		oldAdjustment = driveTrain.getNavX().getAngleAdjustment();
 
         	if(trimRight){
-        		driveTrain.getNavX().setAngleAdjustment(oldAdjustment-Constants.TRIM_STEP);
-        	}else if(!trimRight){
-        		driveTrain.getNavX().setAngleAdjustment(oldAdjustment+Constants.TRIM_STEP);
+        		driveTrain.getNavX().setAngleAdjustment(oldAdjustment - Constants.TRIM_STEP);
+        	}else{
+        		driveTrain.getNavX().setAngleAdjustment(oldAdjustment + Constants.TRIM_STEP);
         	}
     		
     	}

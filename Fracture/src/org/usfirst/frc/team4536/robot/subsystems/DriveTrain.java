@@ -234,8 +234,8 @@ public class DriveTrain extends Subsystem {
 	 * @author Theo
 	 * resets the collision detected boolean to false.
 	 */
-	public void resetCollision(){
-		//collisionDetected = false;
+	public void resetCollision() {
+		collisionDetected = false;
 	}
 	
 	/**
@@ -252,6 +252,11 @@ public class DriveTrain extends Subsystem {
 		return false;
 		
 	}
+	
+	/**
+	 * @author Jasper
+	 * @return collisionDetected whether the robot has collided with something
+	 */
 
 	public boolean checkForCollision() {
 		double currLinearAccelX = navX.getWorldLinearAccelX();
@@ -270,8 +275,14 @@ public class DriveTrain extends Subsystem {
 		
 	}
 	
+	/**
+	 * @author Jasper
+	 * @return returns the combined jerk in three dimensions
+	 */
+	
 	public double getJerk() {
 		return Math.sqrt( Math.pow(jerkX, 2.0) + Math.pow(jerkY, 2.0) + Math.pow(jerkZ, 2.0));
 	}
+	
 }
 
