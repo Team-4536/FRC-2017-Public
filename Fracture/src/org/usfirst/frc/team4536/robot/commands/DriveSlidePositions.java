@@ -5,7 +5,6 @@ import org.usfirst.frc.team4536.robot.OI;
  *@author Eddie
  *Command to rotate the gear slide
  */
-//TODO wont work until we use servo code
 
 public class DriveSlidePositions extends CommandBase {
 	public double position;

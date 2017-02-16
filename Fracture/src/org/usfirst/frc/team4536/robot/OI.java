@@ -48,6 +48,7 @@ public class OI {
 		setFeederStationAngle();
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
 		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
+		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
 		holdLeft.whenPressed(new HoldAngle(Constants.LEFT_PEG_ANGLE));
@@ -72,10 +73,12 @@ public class OI {
         
 		fullSpeedClimb = new JoystickButton(secondaryStick, RobotMap.FULL_CLIMB);
 		fullSpeedClimb.whenPressed(new RunClimber(1));
+		fullSpeedClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
 		fullSpeedClimb.whenReleased(new RunClimber(0));
         
 		slowClimb = new JoystickButton(secondaryStick, RobotMap.SLOW_CLIMB);
 		slowClimb.whenPressed(new RunClimber(Constants.SLOW_CLIMB_SPEED));
+		slowClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
 		slowClimb.whenReleased(new RunClimber(0));
 		
 		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
