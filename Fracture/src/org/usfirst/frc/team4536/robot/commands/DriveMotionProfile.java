@@ -87,7 +87,7 @@ protected void initialize() {
 		
 	}
 	catch(NavXException e) {
-		end();
+		isFinished();
 	}
 	
 }
@@ -104,12 +104,20 @@ protected void execute() {
 
 	}
 	catch(NavXException e) {
-		end();
+		isFinished();
 	}
 }
 
 protected boolean isFinished() {
-	return false;
+	try {
+		
+		double t = driveTrain.getNavX().getAngle();
+		return false;
+
+	}
+	catch(NavXException e) {
+		return true;
+	}
 }
 
 protected void end() {
