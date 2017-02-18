@@ -47,7 +47,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		setupCameras();
+		setupOneCamera();
 		SmartDashboard.putData("Auto mode", chooser);
 		smartDashboardCommand = new SmartDashboardCommand();
 		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0, 0);
@@ -91,6 +91,13 @@ public class Robot extends IterativeRobot {
 		});
 		t.start();
 			
+	}
+	
+	private void setupOneCamera(){
+		
+		UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+		camera1.setResolution(Constants.CAMERA_RESOLUTION_WIDTH, Constants.CAMERA_RESOLUTION_HEIGHT);
+		
 	}
 
 	/**

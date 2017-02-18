@@ -27,7 +27,7 @@ public class Constants {
 	public static final double FORWARD_STRAFE_RATIO = 3.0; //Ratio of forward velocity to strafing velocity
 	public static final double DRIVE_TRAIN_ACCEL_LIMIT = 0.1; //In seconds
 
-	public static final double BACKUP_DRIVE_STRAFE_SPEED_CURVE = 1.0;
+	public static final double BACKUP_DRIVE_STRAFE_SPEED_CURVE = 0.8;
 	public static final double BACKUP_DRIVE_TURN_SPEED_CURVE = 2.0;
 	public static final double BACKUP_DRIVE_FORWARD_SPEED_CURVE = 2.0;
 
@@ -49,14 +49,13 @@ public class Constants {
 	
 	//Profile constants
 	//These might need changing, they're mostly just copied from last year.
-	
-	public static final double FORWARD_NAVX_PROPORTIONALITY = 0.07; //Measured in throttle per inch.
 
 	public static final double DEFAULT_SPEED = 3.0; //Measured in meters per second.
 	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT = 16.0; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 175.0; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 141.0; //Ticks per inch
 
     
 	//Angle Adjustments
@@ -80,7 +79,7 @@ public class Constants {
 	
 	//Field Centric auto-rotate
 	
-	public static final double AUTO_ROTATE_P_CONSTANT = 0.02;
+	public static final double AUTO_ROTATE_P_CONSTANT = 0.01;
 	public static final double AUTO_ROTATE_SCALE_PARAM = 0.7;
 	public static final double AUTO_ROTATE_SPEED_CURVE = 2.0;
 
@@ -95,21 +94,24 @@ public class Constants {
 	// HoldAngle
 	
 	public static final double HOLD_ANGLE_P_CONSTANT = 0.02; //Throttle per degree
-	public static final double HOLD_ANGLE_SCALE_PARAM = 0.7;
+	public static final double HOLD_ANGLE_SCALE_PARAM = 0.6;
 	public static final double HOLD_ANGLE_SPEED_CURVE = 1.0; //unitless
 	
 	//Climb 
 	
 	public static final double SLOW_CLIMB_SPEED = 0.5; //between 0 and 1
 	public static final double CLIMB_ACCEL_LIMIT = 0.1;
+	public static final double OFF_GROUND_ANGLE = 45; //pitch degrees
+	public static final double OFF_GROUND_TIME = 0.25; //seconds
+	
 	
 	//Gear Slide
 	
 	public static final double TOP_POSITION = 1.0;
-	public static final double GEAR_POSITION = 0.52;
-	public static final double MIDDLE_POSITION = 0.6;//TODO tweak later
+	public static final double GEAR_POSITION = 0.48;//0.52;
+	public static final double MIDDLE_POSITION = 0.65;//0.6;//TODO tweak later
 	public static final double UPPER_LIMIT = 1.0;
-	public static final double LOWER_LIMIT = 0.51;
+	public static final double LOWER_LIMIT = 0.47;//0.51;
 	
 	//Score Gear Left
 	

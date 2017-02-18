@@ -34,6 +34,7 @@ public class OI {
 	public static Button backupDrive;
 	public static Button fullSpeedClimb;
 	public static Button slowClimb;
+	public static Button offGround;
 
 	public static Button slidePositionTop;
 	public static Button slidePositionGear;
@@ -48,6 +49,7 @@ public class OI {
 		setFeederStationAngle();
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
 		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
+		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
 		holdLeft.whenPressed(new HoldAngle(Constants.LEFT_PEG_ANGLE));
@@ -72,14 +74,17 @@ public class OI {
         
 		fullSpeedClimb = new JoystickButton(secondaryStick, RobotMap.FULL_CLIMB);
 		fullSpeedClimb.whenPressed(new RunClimber(1));
+		fullSpeedClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
 		fullSpeedClimb.whenReleased(new RunClimber(0));
         
 		slowClimb = new JoystickButton(secondaryStick, RobotMap.SLOW_CLIMB);
 		slowClimb.whenPressed(new RunClimber(Constants.SLOW_CLIMB_SPEED));
+		slowClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
 		slowClimb.whenReleased(new RunClimber(0));
 		
 		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
 		switchPrimary.whenPressed(new AutoRotateFieldCentric());
+		switchPrimary.whenPressed(new DriveSlidePositions(Constants.MIDDLE_POSITION));
 
 		slidePositionTop = new JoystickButton(secondaryStick, RobotMap.POSITION_TOP);
 		slidePositionTop.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
@@ -100,18 +105,18 @@ public class OI {
 		
 		switchCamera = new JoystickButton(secondaryStick, RobotMap.SWITCH_CAMERA);
 		switchCamera.whenPressed(new CameraSwitcher());
+		
+		offGround = new JoystickButton(secondaryStick, RobotMap.OFF_GROUND);
+		offGround.whenPressed(new OffGround());
 	
 	}
 	
 	public static void setFeederStationAngle(){
-		if ((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Blue) {
-			feederStationAngle = Constants.FEEDER_STATION_ANGLE;
+		if ((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Red) {
+			feederStationAngle = -Constants.FEEDER_STATION_ANGLE;
 		}
-		else if ((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Red) {
-			feederStationAngle = -Constants.FEEDER_STATION_ANGLE;	
-		}
-		else {
-			feederStationAngle = 0.0;
+		else {//((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Red) {
+			feederStationAngle = Constants.FEEDER_STATION_ANGLE;	
 		}
 	}
 }

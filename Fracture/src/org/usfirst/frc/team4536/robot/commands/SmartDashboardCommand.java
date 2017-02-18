@@ -25,8 +25,6 @@ public class SmartDashboardCommand extends CommandBase {
     protected void initialize() {
     	timer.resetTimer();
     	timer.startTimer();
-    	
-    	SmartDashboard.putNumber("Error", 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -65,10 +63,14 @@ public class SmartDashboardCommand extends CommandBase {
     	SmartDashboard.putNumber("Joystick Angle", OI.primaryRightStick.getDirectionDegrees());
     	
     	//Encoders
-    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder());
-    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate());
-    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder());
-    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate());
+    	try {
+    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(0));
+    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(0));
+    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(0));
+    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(0));
+    	}
+    	catch(EncoderException e) {
+    	}
     	
     	SmartDashboard.putBoolean("Collision:", driveTrain.checkForCollision());
     	SmartDashboard.putNumber("Jerk", driveTrain.getJerk());
