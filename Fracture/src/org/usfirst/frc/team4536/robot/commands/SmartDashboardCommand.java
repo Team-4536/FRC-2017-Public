@@ -25,8 +25,6 @@ public class SmartDashboardCommand extends CommandBase {
     protected void initialize() {
     	timer.resetTimer();
     	timer.startTimer();
-    	
-    	SmartDashboard.putNumber("Error", 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -72,14 +70,13 @@ public class SmartDashboardCommand extends CommandBase {
     	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(0));
     	}
     	catch(EncoderException e) {
-    		SmartDashboard.putNumber("Error", 1);
     	}
     	
     	SmartDashboard.putBoolean("Collision:", driveTrain.checkForCollision());
     	SmartDashboard.putNumber("Jerk", driveTrain.getJerk());
-
-
-    }
+    	
+    	SmartDashboard.putData(driveTrain);    
+    	}
 
 	// Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
