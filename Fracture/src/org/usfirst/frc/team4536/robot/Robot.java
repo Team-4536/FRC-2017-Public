@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		setupOneCamera();
+		setupCameras();
 		SmartDashboard.putData("Auto mode", chooser);
 		smartDashboardCommand = new SmartDashboardCommand();
 		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0, 0);

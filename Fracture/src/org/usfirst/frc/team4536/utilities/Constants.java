@@ -108,16 +108,16 @@ public class Constants {
 	
 	public static final double SLOW_CLIMB_SPEED = 0.5; //between 0 and 1
 	public static final double CLIMB_ACCEL_LIMIT = 0.1;
-	public static final double OFF_GROUND_ANGLE = 45; //pitch degrees
+	public static final double OFF_GROUND_ANGLE = 30; //roll degrees (pitch on sidewinder)
 	public static final double OFF_GROUND_TIME = 0.25; //seconds
 	
 	
 	//Gear Slide
 	
-	public static final double TOP_POSITION = 1.0;
+	public static final double TOP_POSITION = 0.73;
 	public static final double GEAR_POSITION = 0.48;//0.52;
 	public static final double MIDDLE_POSITION = 0.65;//0.6;//TODO tweak later
-	public static final double UPPER_LIMIT = 1.0;
+	public static final double UPPER_LIMIT = 0.73;
 	public static final double LOWER_LIMIT = 0.47;//0.51;
 	
 	//Score Gear Left

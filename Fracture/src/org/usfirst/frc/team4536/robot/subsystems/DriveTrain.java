@@ -151,9 +151,9 @@ public class DriveTrain extends Subsystem {
      * @return strafe encoder distance in inches.
      */
     public double getStrafeEncoder(double time) throws EncoderException {
-    	if (time > 1 && strafeEncoder.get() == 0) {
+    	/*if (time > 1 && strafeEncoder.get() == 0) {
     		throw new EncoderException();
-    	}
+    	}*/
     	return (strafeEncoder.get()/Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE);
     }
     
@@ -162,9 +162,9 @@ public class DriveTrain extends Subsystem {
      * @return forward encoder distance in inches.
      */
     public double getForwardEncoder(double time) throws EncoderException {
-    	if (time > 1 && forwardEncoder.get() == 0) {
+    	/*if (time > 1 && forwardEncoder.get() == 0) {
     		throw new EncoderException();
-    	}
+    	}*/
     	return (forwardEncoder.get()/Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD);
     }
     
@@ -173,9 +173,9 @@ public class DriveTrain extends Subsystem {
     * @return forward encoder rate(velocity) in inches/second.
     */
     public double getForwardRate(double time) throws EncoderException {
-    	if (time > 1 && forwardEncoder.get() == 0) {
+    	/*if (time > 1 && forwardEncoder.get() == 0) {
     		throw new EncoderException();
-    	}
+    	}*/
     	return forwardEncoder.getRate()/Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD;
     }
     
@@ -184,9 +184,9 @@ public class DriveTrain extends Subsystem {
      * @return strafe encoder rate(velocity) in inches/second.
      */
     public double getStrafeRate(double time) throws EncoderException {
-    	if (time > 1 && strafeEncoder.get() == 0) {
+    	/*if (time > 1 && strafeEncoder.get() == 0) {
     		throw new EncoderException();
-    	}
+    	}*/
     	return strafeEncoder.getRate()/Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE;
     }
     

@@ -46,7 +46,7 @@ public class RobotMap {
 	public static final int CLIMB = 8;
 	public static final int FULL_CLIMB = 6;
 	public static final int SLOW_CLIMB = 7;
-	public static final int OFF_GROUND = 2;
+	public static final int AUTO_CLIMB = 2;
 	public static final int POSITION_TOP = 4;
 	public static final int POSITION_GEAR = 3;
 	public static final int POSITION_MIDDLE = 5;
