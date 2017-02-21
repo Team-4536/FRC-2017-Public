@@ -51,7 +51,7 @@ public class OI {
 		//setFeederStationAngle();
 		
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(Constants.BLUE_FEEDER_STATION_ANGLE));
+		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
 		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
