@@ -70,7 +70,7 @@ public class MotionProfile extends Profile{
 		 */
 		public double getForwardThrottle(double time){
 			
-			return (Utilities.adjustForStiction(Math.cos(Math.toRadians(desiredAngle-robotAngle)) * idealVelocity(time), 
+			return (Utilities.adjustForStiction(Math.cos(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time), 
 					Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY));
 		}
 		

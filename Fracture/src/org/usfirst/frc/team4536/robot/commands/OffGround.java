@@ -27,7 +27,7 @@ public class OffGround extends CommandBase {
     protected void execute() {
     	try{
     		
-    		if(driveTrain.getNavX().getPitch()>Constants.OFF_GROUND_ANGLE){
+    		if(driveTrain.getNavX().getRoll()>Constants.OFF_GROUND_ANGLE){
             	
             	timer.startTimer();
             	climber.setClimber(0);
@@ -46,6 +46,7 @@ public class OffGround extends CommandBase {
     protected boolean isFinished() {
     	
     	if (timer.getTime()>Constants.OFF_GROUND_TIME){
+    		
     		
     		return true;
     		
