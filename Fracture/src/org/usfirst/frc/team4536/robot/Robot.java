@@ -137,7 +137,9 @@ public class Robot extends IterativeRobot {
 
 		if (smartDashboardCommand != null) {
 			smartDashboardCommand.start();
-       }
+        }
+		
+		//OI.setFeederStationAngle();
     
 		autoChooser.start();
 		
@@ -179,6 +181,8 @@ public class Robot extends IterativeRobot {
 		if (smartDashboardCommand != null) {        	
         	smartDashboardCommand.start();
         }
+		
+		//OI.setFeederStationAngle();
 
 		CommandBase.driveTrain.setLastDesiredAngle(60);
 		cycleTimer.startTimer();
@@ -192,6 +196,8 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		
 		cycleTimer.updateCycleTime();
+		
+		//OI.setFeederStationAngle();
 	}
 	
 	/**

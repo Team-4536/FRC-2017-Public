@@ -45,10 +45,13 @@ public class OI {
 	
 	public static Button switchCamera;
 	
+	public static Button tankAutoRotate;
+	
 	public static void ButtonHandling() {
-		setFeederStationAngle();
+		//setFeederStationAngle();
+		
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
+		holdFeeder.whenPressed(new HoldAngle(Constants.BLUE_FEEDER_STATION_ANGLE));
 		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
@@ -78,13 +81,16 @@ public class OI {
 		fullSpeedClimb.whenReleased(new RunClimber(0));
         
 		slowClimb = new JoystickButton(secondaryStick, RobotMap.SLOW_CLIMB);
-		slowClimb.whenPressed(new RunClimber(Constants.SLOW_CLIMB_SPEED));
+		slowClimb.whileHeld(new RunClimber(Constants.SLOW_CLIMB_SPEED));
 		slowClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
 		slowClimb.whenReleased(new RunClimber(0));
 		
 		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
 		switchPrimary.whenPressed(new AutoRotateFieldCentric());
 		switchPrimary.whenPressed(new DriveSlidePositions(Constants.MIDDLE_POSITION));
+		
+		tankAutoRotate = new JoystickButton(primaryRightStick, RobotMap.TANK_FIELD_CENTRIC);
+		tankAutoRotate.whenPressed(new TankDriveAutoRotate());
 
 		slidePositionTop = new JoystickButton(secondaryStick, RobotMap.POSITION_TOP);
 		slidePositionTop.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
@@ -111,12 +117,11 @@ public class OI {
 	
 	}
 	
+	/*
 	public static void setFeederStationAngle(){
-		if ((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Red) {
-			feederStationAngle = -Constants.FEEDER_STATION_ANGLE;
-		}
-		else {//((DriverStation.getInstance()).getAlliance() == DriverStation.Alliance.Red) {
-			feederStationAngle = Constants.FEEDER_STATION_ANGLE;	
-		}
+		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
+		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
+		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 	}
+	*/
 }

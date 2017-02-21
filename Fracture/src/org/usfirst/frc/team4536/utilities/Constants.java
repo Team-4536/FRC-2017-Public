@@ -42,7 +42,8 @@ public class Constants {
 
 	//OI
 	
-	public static final double FEEDER_STATION_ANGLE = 116.6;
+	public static final double BLUE_FEEDER_STATION_ANGLE = -116.6;
+	public static final double RED_FEEDER_STATION_ANGLE = 116.6;
 	public static final double LEFT_PEG_ANGLE = 60.0;
 	public static final double MIDDLE_PEG_ANGLE = 0.0;
 	public static final double RIGHT_PEG_ANGLE = -60.0;
@@ -50,7 +51,7 @@ public class Constants {
 	//Profile constants
 	//These might need changing, they're mostly just copied from last year.
 
-	public static final double DEFAULT_SPEED = 3.0; //Measured in meters per second.
+	public static final double DEFAULT_SPEED = 2.0; //Measured in meters per second.
 	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
@@ -82,6 +83,12 @@ public class Constants {
 	public static final double AUTO_ROTATE_P_CONSTANT = 0.01;
 	public static final double AUTO_ROTATE_SCALE_PARAM = 0.7;
 	public static final double AUTO_ROTATE_SPEED_CURVE = 2.0;
+	
+	//Tank Field Centric auto-rotate
+	
+	public static final double TANK_ROTATE_P_CONSTANT = 0.01;
+	public static final double TANK_ROTATE_SCALE_PARAM = 0.5;
+	public static final double TANK_ROTATE_SPEED_CURVE = 2.0;
 
 	//Field Centric Rotate
 	
@@ -115,13 +122,13 @@ public class Constants {
 	
 	//Score Gear Left
 	
-	public static final double GEAR_LEFT_DISTANCE = 10.0; //feet
-	public static final double GEAR_LEFT_GOAL_ANGLE = 40.0; //degrees
-	public static final double GEAR_LEFT_START_ANGLE = 60.0; //degrees
+	public static final double GEAR_LEFT_DISTANCE = 4;//8.0; //feet
+	public static final double GEAR_LEFT_GOAL_ANGLE = 30.0; //degrees
+	public static final double GEAR_LEFT_START_ANGLE = 64.0; //degrees
 	
 	//Score Gear Middle
 
-	public static final double GEAR_MIDDLE_DISTANCE = 7.0; //feet
+	public static final double GEAR_MIDDLE_DISTANCE = 8.0; //feet
 	public static final double GEAR_MIDDLE_GOAL_ANGLE = 0.0; //degrees
 	public static final double GEAR_MIDDLE_START_ANGLE = 0.0; //degrees
 	
