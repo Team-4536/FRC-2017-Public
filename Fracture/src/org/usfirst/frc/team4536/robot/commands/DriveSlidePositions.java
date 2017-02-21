@@ -23,7 +23,6 @@ public class DriveSlidePositions extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	gearSlide.setGearSlide(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -52,7 +51,6 @@ public class DriveSlidePositions extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	gearSlide.setGearSlide(0);
     }
 
     // Called when another command which requires one or more of the same

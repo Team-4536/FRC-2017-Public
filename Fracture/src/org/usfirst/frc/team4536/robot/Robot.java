@@ -50,7 +50,7 @@ public class Robot extends IterativeRobot {
 		setupCameras();
 		SmartDashboard.putData("Auto mode", chooser);
 		smartDashboardCommand = new SmartDashboardCommand();
-		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0, 0);
+		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0.0, 0.0);
 		cycleTimer = new EnhancedTimer();
 		rotateHoldAngle = new AutoRotateFieldCentric();
 		crossBaseline = new CrossBaseline();
@@ -184,7 +184,7 @@ public class Robot extends IterativeRobot {
 		
 		//OI.setFeederStationAngle();
 
-		CommandBase.driveTrain.setLastDesiredAngle(60);
+		CommandBase.driveTrain.setLastDesiredAngle(60.0);
 		cycleTimer.startTimer();
 	}
 

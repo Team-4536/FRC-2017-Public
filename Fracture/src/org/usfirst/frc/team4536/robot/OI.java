@@ -76,14 +76,14 @@ public class OI {
 		backupDrive.whenPressed(new BackupDrive());
         
 		fullSpeedClimb = new JoystickButton(secondaryStick, RobotMap.FULL_CLIMB);
-		fullSpeedClimb.whenPressed(new RunClimber(1));
+		fullSpeedClimb.whenPressed(new RunClimber(1.0));
 		fullSpeedClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
-		fullSpeedClimb.whenReleased(new RunClimber(0));
+		fullSpeedClimb.whenReleased(new RunClimber(0.0));
         
 		slowClimb = new JoystickButton(secondaryStick, RobotMap.SLOW_CLIMB);
 		slowClimb.whileHeld(new RunClimber(Constants.SLOW_CLIMB_SPEED));
 		slowClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
-		slowClimb.whenReleased(new RunClimber(0));
+		slowClimb.whenReleased(new RunClimber(0.0));
 		
 		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
 		switchPrimary.whenPressed(new AutoRotateFieldCentric());
