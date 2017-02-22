@@ -6,6 +6,8 @@ import org.usfirst.frc.team4536.utilities.Constants;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -48,10 +50,9 @@ public class OI {
 	public static Button tankAutoRotate;
 	
 	public static void ButtonHandling() {
-		//setFeederStationAngle();
 		
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
+		holdFeeder.whenPressed(new HoldAngleFeeder());
 		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
@@ -116,12 +117,4 @@ public class OI {
 		autoClimb.whenPressed(new OffGround());
 	
 	}
-	
-	/*
-	public static void setFeederStationAngle(){
-		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
-		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
-	}
-	*/
 }

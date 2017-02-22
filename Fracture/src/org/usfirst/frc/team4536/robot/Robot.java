@@ -40,7 +40,6 @@ public class Robot extends IterativeRobot {
 	Command rotateHoldAngle;
 	Command crossBaseline;
 	Command autoChooser;
-	Command teamChooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -56,7 +55,6 @@ public class Robot extends IterativeRobot {
 		rotateHoldAngle = new AutoRotateFieldCentric();
 		crossBaseline = new CrossBaseline();
 		autoChooser = new AutoChooser();
-		teamChooser = new TeamChooser();
 		OI.ButtonHandling();
 		
 	}
@@ -114,8 +112,6 @@ public class Robot extends IterativeRobot {
         }
 		cycleTimer.stopTimer();
 		cycleTimer.resetTimer();
-		
-		//teamChooser.start();
 	}
 
 	@Override
@@ -142,12 +138,8 @@ public class Robot extends IterativeRobot {
 		if (smartDashboardCommand != null) {
 			smartDashboardCommand.start();
         }
-		
-		//OI.setFeederStationAngle();
     
 		autoChooser.start();
-		
-		//teamChooser.start();
 		
 		try {
     		
@@ -187,10 +179,6 @@ public class Robot extends IterativeRobot {
 		if (smartDashboardCommand != null) {        	
         	smartDashboardCommand.start();
         }
-		
-		//teamChooser.start();
-		
-		//OI.setFeederStationAngle();
 
 		CommandBase.driveTrain.setLastDesiredAngle(60);
 		cycleTimer.startTimer();
