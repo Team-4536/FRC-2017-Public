@@ -1,95 +1,85 @@
 <xml version="1.0">
 <dashboard>
-	<widget field="Strafe: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="194" y="466"/>
+	<widget field="Team Chooser" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="139" y="0"/>
 	</widget>
-	<widget field="Forward Encoder Rate: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="195" y="449"/>
+	<widget field="DriveTrain" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="0" y="656"/>
 	</widget>
-	<widget field="Strafe Encoder Rate: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="195" y="428"/>
+	<widget field="Jerk" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="635"/>
 	</widget>
-	<widget field="Foward Encoder: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="299"/>
+	<widget field="Collision:" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="614"/>
+	</widget>
+	<widget field="Strafe Encoder Rate" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="593"/>
+	</widget>
+	<widget field="Strafe Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="572"/>
+	</widget>
+	<widget field="Forward Encoder Rate" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="551"/>
+	</widget>
+	<widget field="Forward Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="530"/>
+	</widget>
+	<widget field="Joystick Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="509"/>
+	</widget>
+	<widget field="Last Desired Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="488"/>
+	</widget>
+	<widget field="Left Joystick X: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="467"/>
+	</widget>
+	<widget field="Left Joystick Y: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="446"/>
+	</widget>
+	<widget field="Secondary Joystick X: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="425"/>
+	</widget>
+	<widget field="Secondary Joystick Y: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="404"/>
+	</widget>
+	<widget field="Right Joystick X: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="383"/>
+	</widget>
+	<widget field="Right Joystick Y: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="362"/>
+	</widget>
+	<widget field="Roll: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="208" y="614"/>
+	</widget>
+	<widget field="Pitch: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="204" y="635"/>
+	</widget>
+	<widget field="Yaw: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="206" y="655"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
 		<location x="722" y="374"/>
 		<height>52</height>
-		<property name="Image File" value="C:\Team4536\FractureCodeEddie\Fracture\SmartDashoardBar.png"/>
+		<property name="Image File" value="C:\Team4536\FractureCodeNoah\Fracture\SmartDashoardBar.png"/>
 	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
-		<location x="415" y="376"/>
-		<height>50</height>
-		<property name="Image File" value="C:\Team4536\FractureCodeEddie\Fracture\SmartDashoardBar.png"/>
+		<location x="403" y="37"/>
+		<height>52</height>
+		<property name="Image File" value="C:\Team4536\FractureCodeNoah\Fracture\SmartDashoardBar.png"/>
 	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
-		<location x="571" y="8"/>
-		<width>10</width>
+		<location x="570" y="7"/>
 		<height>418</height>
-		<property name="Image File" value="C:\Team4536\FractureCodeEddie\Fracture\SmartDashoardBar.png"/>
+		<property name="Image File" value="C:\Team4536\FractureCodeNoah\Fracture\SmartDashoardBar.png"/>
 	</static-widget>
-	<widget field="Collision:" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="551"/>
-	</widget>
-	<widget field="Last Desired Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="530"/>
-	</widget>
-	<widget field="Strafe Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="509"/>
-	</widget>
-	<widget field="Right Joystick X: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="488"/>
-	</widget>
-	<widget field="Error" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="467"/>
-	</widget>
-	<widget field="Forward Encoder Rate" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="446"/>
-	</widget>
-	<widget field="Pitch: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="425"/>
-	</widget>
-	<widget field="Left Joystick Y: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="404"/>
-	</widget>
-	<widget field="Yaw: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="383"/>
-	</widget>
-	<widget field="Secondary Joystick Y: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="362"/>
-	</widget>
-	<widget field="Joystick Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="341"/>
-	</widget>
-	<widget field="Forward Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="320"/>
-	</widget>
-	<widget field="Jerk" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="-1" y="571"/>
-	</widget>
-	<widget field="Strafe Encoder Rate" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1" y="588"/>
-	</widget>
-	<widget field="Left Joystick X: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="607"/>
-	</widget>
-	<widget field="Roll: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1" y="628"/>
-	</widget>
-	<widget field="Secondary Joystick X: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="2" y="647"/>
-	</widget>
-	<widget field="Right Joystick Y: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1" y="667"/>
-	</widget>
 	<widget field="Adjusted Angle: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.Compass">
-		<location x="1" y="148"/>
+		<location x="7" y="178"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
 		<location x="279" y="7"/>
 		<width>595</width>
 		<height>420</height>
-		<property name="Camera Choice" value="USB Camera 0"/>
+		<property name="Camera Choice" value=""/>
 	</static-widget>
 	<widget field=" Auto Chooser" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
 		<location x="3" y="2"/>

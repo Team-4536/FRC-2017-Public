@@ -53,11 +53,11 @@ public class MotionProfile extends Profile{
 		
 		if (triangle) {
 			
-			timeNeeded = 2*Math.sqrt(Math.abs(distance/desiredMaxAcceleration));
+			timeNeeded = 2.0*Math.sqrt(Math.abs(distance/desiredMaxAcceleration));
 		}
 		else {
 			
-			timeNeeded = (2*criticalTime) + ((Math.abs(distance) - 2*criticalDistance)/desiredMaxSpeed); //Still in seconds
+			timeNeeded = (2.0*criticalTime) + ((Math.abs(distance) - 2.0*criticalDistance)/desiredMaxSpeed); //Still in seconds
 		}
 	}
 		
@@ -70,7 +70,7 @@ public class MotionProfile extends Profile{
 		 */
 		public double getForwardThrottle(double time){
 			
-			return (Utilities.adjustForStiction(Math.cos(Math.toRadians(desiredAngle-robotAngle)) * idealVelocity(time), 
+			return (Utilities.adjustForStiction(Math.cos(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time), 
 					Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY));
 		}
 		
@@ -105,15 +105,15 @@ public class MotionProfile extends Profile{
 			
 			if (triangle) {
 				
-				if(time <= timeNeeded/2 && time > 0) { // first leg of triangle
+				if(time <= timeNeeded/2 && time > 0.0) { // first leg of triangle
 					
 					velocity =  this.desiredMaxAcceleration*time;
 				}
 				else if (time > timeNeeded/2 && time <= timeNeeded){ // second leg of triangle
 					
-					double maxTriangleVelocity = this.desiredMaxAcceleration*timeNeeded/2;
+					double maxTriangleVelocity = this.desiredMaxAcceleration*timeNeeded/2.0;
 					
-					velocity = -this.desiredMaxAcceleration*(time - timeNeeded/2) + maxTriangleVelocity;
+					velocity = -this.desiredMaxAcceleration*(time - timeNeeded/2.0) + maxTriangleVelocity;
 				}
 				else { // garbage
 					
@@ -122,7 +122,7 @@ public class MotionProfile extends Profile{
 			}
 			else {//trapezoid
 				
-				if(time <= criticalTime && time >= 0) {//0 to max velocity
+				if(time <= criticalTime && time >= 0.0) {//0 to max velocity
 					
 					velocity = this.desiredMaxAcceleration*time;
 				}
@@ -136,11 +136,11 @@ public class MotionProfile extends Profile{
 				}
 				else {//Garbage
 					
-					velocity = 0;
+					velocity = 0.0;
 				}
 			}
 			
-			if (distance < 0) {
+			if (distance < 0.0) {
 				
 				return -velocity;
 			}
@@ -160,13 +160,13 @@ public class MotionProfile extends Profile{
 			
 			if (triangle) {
 				
-				if (time >= 0 && time <= timeNeeded/2) { // First Half, before timeNeeded divided by 2
+				if (time >= 0.0 && time <= timeNeeded/2.0) { // First Half, before timeNeeded divided by 2
 					
-					distance = idealVelocity(time) * time / 2;
+					distance = idealVelocity(time) * time / 2.0;
 				}
-				else if (time > timeNeeded/2 && time <= timeNeeded) { // Second Half, after timeNeeded divided by 2
+				else if (time > timeNeeded/2.0 && time <= timeNeeded) { // Second Half, after timeNeeded divided by 2
 						
-					distance = this.distance - (idealVelocity(timeNeeded-time)* (timeNeeded-time))/2;
+					distance = this.distance - (idealVelocity(timeNeeded-time)* (timeNeeded-time))/2.0;
 				}
 				else if (time > timeNeeded) { // TimeNeeded or greater
 					
@@ -174,18 +174,18 @@ public class MotionProfile extends Profile{
 				}
 				else { // Negative Time
 					
-					distance = 0;
+					distance = 0.0;
 				}
 			}
 			else { // Trapezoid
 				
-				if (time >= 0 && time <= criticalTime) { // The first leg of the trapezoid
+				if (time >= 0.0 && time <= criticalTime) { // The first leg of the trapezoid
 					
-					distance = idealVelocity(time)*time/2;
+					distance = idealVelocity(time)*time/2.0;
 				}
 				else if (time > criticalTime && time <= (timeNeeded - criticalTime)) { // The body of the trapezoid
 					
-					if (this.distance > 0) {
+					if (this.distance > 0.0) {
 						
 						distance = this.desiredMaxSpeed * (time - criticalTime) + criticalDistance;
 					}
@@ -196,7 +196,7 @@ public class MotionProfile extends Profile{
 				}
 				else if (time > (timeNeeded - criticalTime) && time <= timeNeeded) { // The last leg of the trapezoid
 					
-					distance = this.distance - (idealVelocity(timeNeeded - time) * (timeNeeded - time))/2;
+					distance = this.distance - (idealVelocity(timeNeeded - time) * (timeNeeded - time))/2.0;
 				}
 				else if (time > timeNeeded) { // After timeNeeded when the distance should have been covered
 					
@@ -204,13 +204,13 @@ public class MotionProfile extends Profile{
 				}
 				else { // Garbage negative values
 					
-					distance = 0;
+					distance = 0.0;
 				}
 			}
 			
-			if (this.distance < 0) {
+			if (this.distance < 0.0) {
 				
-				if (distance < 0) {
+				if (distance < 0.0) {
 					
 					return distance;
 				}
@@ -219,7 +219,7 @@ public class MotionProfile extends Profile{
 			}
 			else {
 				
-				if (distance < 0) {
+				if (distance < 0.0) {
 					
 					return -distance;
 				}
@@ -260,7 +260,7 @@ public class MotionProfile extends Profile{
 		 * @return The distance the robot should have traveled by the end of that time.
 		 */
 		public double newIdealDistance(double time){
-			 double idealDistanceTravelled = 0;
+			 double idealDistanceTravelled = 0.0;
 			  for(double i = 0.0; i < time; i += .02){
 				  idealDistanceTravelled += (0.02 * idealVelocity(i) + (idealVelocity(i + 0.02) - idealVelocity(i)) *  0.01);
 			  }
