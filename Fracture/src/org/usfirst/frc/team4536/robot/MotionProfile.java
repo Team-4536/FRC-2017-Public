@@ -154,7 +154,7 @@ public class MotionProfile extends Profile{
 		 * @author Liam
 		 * @return distance the robot should be at by that time
 		 */
-		public double idealDistance(double time) {
+		/**public double idealDistance(double time) {
 			
 			double distance;
 			
@@ -227,6 +227,7 @@ public class MotionProfile extends Profile{
 				return distance;
 			}
 		}
+		**/
 		
 		/**
 		 * @author Liam
@@ -259,7 +260,7 @@ public class MotionProfile extends Profile{
 		 * @param time a certain period of time since the motionProfile began.
 		 * @return The distance the robot should have traveled by the end of that time.
 		 */
-		public double newIdealDistance(double time){
+		public double idealDistance(double time){
 			 double idealDistanceTravelled = 0;
 			  for(double i = 0.0; i < time; i += .02){
 				  idealDistanceTravelled += (0.02 * idealVelocity(i) + (idealVelocity(i + 0.02) - idealVelocity(i)) *  0.01);
