@@ -18,13 +18,13 @@ public class ScoreGear extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	if (desiredPeg == Constants.PEG_POSITION.LEFT_PEG) {
-    		(new DriveMotionProfile(Constants.GEAR_LEFT_DISTANCE, Constants.GEAR_LEFT_GOAL_ANGLE, Constants.GEAR_LEFT_START_ANGLE)).start();
+    		(new GearScoreRedLeft()).start();
     	}
     	else if (desiredPeg == Constants.PEG_POSITION.MIDDLE_PEG) {
     		(new DriveMotionProfile(Constants.GEAR_MIDDLE_DISTANCE, Constants.GEAR_MIDDLE_GOAL_ANGLE, Constants.GEAR_MIDDLE_START_ANGLE)).start();
     	}
     	else if (desiredPeg == Constants.PEG_POSITION.RIGHT_PEG) {
-    		(new DriveMotionProfile(Constants.GEAR_RIGHT_DISTANCE, Constants.GEAR_RIGHT_GOAL_ANGLE, Constants.GEAR_RIGHT_START_ANGLE)).start();
+    		(new GearScoreRedRight()).start();
     	}
     }
 

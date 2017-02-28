@@ -7,6 +7,7 @@ import org.usfirst.frc.team4536.utilities.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
  * @author Noah
@@ -16,15 +17,34 @@ public class SmartDashboardCommand extends CommandBase {
 	
 	EnhancedTimer timer;
 	double time;
+	SendableChooser team;
 	
     public SmartDashboardCommand() {
     	timer = new EnhancedTimer();
+    	
+    	team = new SendableChooser();
+    	team.addDefault("Red", 0);
+    	team.addObject("Blue", 1);
+    	SmartDashboard.putData("Team Chooser", team);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	timer.resetTimer();
     	timer.startTimer();
+    	
+    	
+    	//OI.feederStationAngle = -Constants.FEEDER_STATION_ANGLE;
+    	
+    	switch ((int) team.getSelected().hashCode()) {
+		case 1:
+			OI.feederStationAngle = Constants.BLUE_FEEDER_STATION_ANGLE;
+		break;
+		default:
+			OI.feederStationAngle = Constants.RED_FEEDER_STATION_ANGLE;
+		break;
+    	}
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,6 +55,15 @@ public class SmartDashboardCommand extends CommandBase {
      */
     
     protected void execute() {
+    	
+    	switch ((int) team.getSelected().hashCode()) {
+		case 1:
+			OI.feederStationAngle = Constants.BLUE_FEEDER_STATION_ANGLE;
+		break;
+		default:
+			OI.feederStationAngle = Constants.RED_FEEDER_STATION_ANGLE;
+		break;
+    	}
     	
     	time = timer.getTime();
     	
@@ -75,8 +104,8 @@ public class SmartDashboardCommand extends CommandBase {
     	SmartDashboard.putBoolean("Collision:", driveTrain.checkForCollision());
     	SmartDashboard.putNumber("Jerk", driveTrain.getJerk());
     	
-    	SmartDashboard.putData(driveTrain);    
-    	}
+    	SmartDashboard.putData(driveTrain);
+    }
 
 	// Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
