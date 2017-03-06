@@ -31,7 +31,7 @@ public class Climber extends Subsystem {
      * @param input Range is from 1 to 0, negative values are not accepted
      */
     public void setClimber(double input) {
-    	double throttle = Utilities.limit(input, 0, 1);
+    	double throttle = Utilities.limit(input, 0.0, 1.0);
     	throttle = Utilities.accelLimit(throttle, prevSpeed, Constants.CLIMB_ACCEL_LIMIT);
     	motor.set(throttle);
     	prevSpeed = throttle;

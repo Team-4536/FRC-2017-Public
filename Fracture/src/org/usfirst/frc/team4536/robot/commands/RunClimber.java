@@ -30,7 +30,7 @@ public class RunClimber extends CommandBase {
     }
     
     protected void end() {
-    	climber.setClimber(0);
+    	climber.setClimber(0.0);
     }
     
     protected void interrupted() {
