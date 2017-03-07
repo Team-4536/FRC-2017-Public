@@ -14,7 +14,7 @@ public class DoNothing extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	driveTrain.Drive(0, 0, 0);
+    	driveTrain.Drive(0.0, 0.0, 0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
