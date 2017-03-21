@@ -2,6 +2,7 @@ package org.usfirst.frc.team4536.robot.commands;
 
 import org.usfirst.frc.team4536.robot.OI;
 import org.usfirst.frc.team4536.utilities.Constants;
+import org.usfirst.frc.team4536.utilities.EnhancedTimer;
 import org.usfirst.frc.team4536.utilities.NavXException;
 import org.usfirst.frc.team4536.utilities.Utilities;
 
@@ -10,9 +11,11 @@ import org.usfirst.frc.team4536.utilities.Utilities;
  *Class to drive while holding an angle, field-centric.
  */
 public class HoldAngle extends CommandBase {
-	private double forwardThrottle, strafeThrottle, turnThrottle, rAng;
+	private double forwardThrottle, strafeThrottle, turnThrottle, rAng, lastAngle, angleSpeed, lastTime;
+	EnhancedTimer timer;
 
     public HoldAngle(double robotAngle) {
+    	timer = new EnhancedTimer();
         requires(driveTrain);
         rAng = robotAngle;
     }
@@ -21,12 +24,16 @@ public class HoldAngle extends CommandBase {
     	forwardThrottle = 0.0;
     	strafeThrottle = 0.0;
     	turnThrottle = 0.0;
+    	timer.resetTimer();
+    	timer.startTimer();
     	//Keep the robot from spazzing out.
     }
 
     protected void execute() {
     	
     	try {
+    		lastAngle = driveTrain.getNavX().getAngle();
+    		lastTime = timer.getTime();
     		
     		double speedCurveMagnitude = Utilities.speedCurve(OI.primaryRightStick.getModMagnitude(), Constants.HOLD_ANGLE_SPEED_CURVE);
     		forwardThrottle = Math.cos(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * speedCurveMagnitude;
@@ -41,6 +48,7 @@ public class HoldAngle extends CommandBase {
         		
     		driveTrain.Drive(forwardThrottle, strafeThrottle, turnThrottle);
     		
+    		angleSpeed = Math.abs((Utilities.angleDifference(driveTrain.getNavX().getAngle(), lastAngle))/(timer.getTime()-lastTime));
     	}
     	catch(NavXException e) {
     		end();
