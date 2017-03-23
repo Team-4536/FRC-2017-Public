@@ -33,8 +33,8 @@ public class Robot extends IterativeRobot {
 	//Controls which camera will be used(Camera 1 is default)
 	public static boolean allowCam1 = true;
 	Command smartDashboardCommand;
-	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	//Command autonomousCommand;
+	//SendableChooser<Command> autoChooser = new SendableChooser<>();
 	Command driveProfile;
 	EnhancedTimer cycleTimer;
 	Command rotateHoldAngle;
@@ -47,10 +47,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		setupCameras();
-		SmartDashboard.putData("Auto mode", chooser);
+		setupOneCamera();
 		smartDashboardCommand = new SmartDashboardCommand();
-		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0, 0);
+		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0.0, 0.0);
 		cycleTimer = new EnhancedTimer();
 		rotateHoldAngle = new AutoRotateFieldCentric();
 		crossBaseline = new CrossBaseline();
@@ -110,6 +109,9 @@ public class Robot extends IterativeRobot {
 		if (smartDashboardCommand != null) {        	
         	smartDashboardCommand.start();
         }
+		
+		//autoChooser.cancel();
+		
 		cycleTimer.stopTimer();
 		cycleTimer.resetTimer();
 	}
@@ -134,14 +136,12 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		
 		cycleTimer.startTimer();
-
+		
+		autoChooser.start();
+		
 		if (smartDashboardCommand != null) {
 			smartDashboardCommand.start();
         }
-		
-		//OI.setFeederStationAngle();
-    
-		autoChooser.start();
 		
 		try {
     		
@@ -171,8 +171,8 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		//if (autonomousCommand != null)
+		//	autonomousCommand.cancel();
 		
 		if (rotateHoldAngle != null){
 			rotateHoldAngle.start();
@@ -182,9 +182,7 @@ public class Robot extends IterativeRobot {
         	smartDashboardCommand.start();
         }
 		
-		//OI.setFeederStationAngle();
-
-		CommandBase.driveTrain.setLastDesiredAngle(60);
+		CommandBase.driveTrain.setLastDesiredAngle(60.0);
 		cycleTimer.startTimer();
 	}
 

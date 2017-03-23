@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4536.robot.commands;
 
+import org.usfirst.frc.team4536.utilities.NavXException;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -14,7 +16,7 @@ public class DoNothing extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	driveTrain.Drive(0, 0, 0);
+    	driveTrain.Drive(0.0, 0.0, 0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run

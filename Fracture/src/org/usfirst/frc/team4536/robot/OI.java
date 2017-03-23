@@ -6,6 +6,8 @@ import org.usfirst.frc.team4536.utilities.Constants;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -48,10 +50,9 @@ public class OI {
 	public static Button tankAutoRotate;
 	
 	public static void ButtonHandling() {
-		//setFeederStationAngle();
 		
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(Constants.BLUE_FEEDER_STATION_ANGLE));
+		holdFeeder.whenPressed(new HoldAngleFeeder());
 		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
@@ -76,14 +77,14 @@ public class OI {
 		backupDrive.whenPressed(new BackupDrive());
         
 		fullSpeedClimb = new JoystickButton(secondaryStick, RobotMap.FULL_CLIMB);
-		fullSpeedClimb.whenPressed(new RunClimber(1));
+		fullSpeedClimb.whenPressed(new RunClimber(1.0));
 		fullSpeedClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
-		fullSpeedClimb.whenReleased(new RunClimber(0));
+		fullSpeedClimb.whenReleased(new RunClimber(0.0));
         
 		slowClimb = new JoystickButton(secondaryStick, RobotMap.SLOW_CLIMB);
 		slowClimb.whileHeld(new RunClimber(Constants.SLOW_CLIMB_SPEED));
 		slowClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
-		slowClimb.whenReleased(new RunClimber(0));
+		slowClimb.whenReleased(new RunClimber(0.0));
 		
 		switchPrimary = new JoystickButton(primaryRightStick, RobotMap.PRIMARY_SWITCH);
 		switchPrimary.whenPressed(new AutoRotateFieldCentric());
@@ -116,12 +117,4 @@ public class OI {
 		autoClimb.whenPressed(new OffGround());
 	
 	}
-	
-	/*
-	public static void setFeederStationAngle(){
-		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
-		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
-	}
-	*/
 }

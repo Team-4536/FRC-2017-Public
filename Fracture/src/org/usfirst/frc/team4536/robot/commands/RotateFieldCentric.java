@@ -18,8 +18,8 @@ public class RotateFieldCentric extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	forwardThrottle = 0;
-    	strafeThrottle = 0;
+    	forwardThrottle = 0.0;
+    	strafeThrottle = 0.0;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,10 +31,10 @@ public class RotateFieldCentric extends CommandBase {
     		forwardThrottle = Math.cos(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * speedCurveMagnitude;
         	strafeThrottle = Math.sin(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * Constants.FORWARD_STRAFE_RATIO * -speedCurveMagnitude;
         	
-        	if(turnThrottle>=0)turnThrottle = 1 - Constants.ROTATE_SCALE_PARAM;
-        	else turnThrottle = -(1 - Constants.ROTATE_SCALE_PARAM);
-        	forwardThrottle = Utilities.scale(forwardThrottle, strafeThrottle, 1 - Math.abs(turnThrottle));
-        	strafeThrottle = Utilities.scale(strafeThrottle, forwardThrottle, 1 - Math.abs(turnThrottle));
+        	if(turnThrottle>=0.0)turnThrottle = 1.0 - Constants.ROTATE_SCALE_PARAM;
+        	else turnThrottle = -(1.0 - Constants.ROTATE_SCALE_PARAM);
+        	forwardThrottle = Utilities.scale(forwardThrottle, strafeThrottle, 1.0 - Math.abs(turnThrottle));
+        	strafeThrottle = Utilities.scale(strafeThrottle, forwardThrottle, 1.0 - Math.abs(turnThrottle));
         		
     		driveTrain.Drive(forwardThrottle, strafeThrottle, turnThrottle);
     		
