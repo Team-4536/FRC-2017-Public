@@ -10,8 +10,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GearScoreRedRight extends CommandGroup {
 
     public GearScoreRedRight() {
+<<<<<<< HEAD
     	addSequential(new DriveMotionProfile(Constants.GEAR_SCORE_RED_RIGHT_DISTANCE, Constants.GEAR_SCORE_RED_RIGHT_GOAL_ANGLE, Constants.GEAR_SCORE_RED_RIGHT_START_ANGLE));
         addSequential(new DriveMotionProfile(2.0, Constants.GEAR_SCORE_RED_RIGHT_START_ANGLE, Constants.GEAR_SCORE_RED_RIGHT_START_ANGLE));
+=======
+    	addSequential(new DriveMotionProfile(4.5, -16.0, -Constants.GEAR_LEFT_START_ANGLE));
+        addSequential(new DriveMotionProfile(2.0, -64.0, -64.0));
+>>>>>>> b6914b3825d92f2d3365ba549d98f8a55cd190d1
 		// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

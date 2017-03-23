@@ -5,23 +5,40 @@ import org.usfirst.frc.team4536.utilities.Constants;
 import org.usfirst.frc.team4536.utilities.NavXException;
 import org.usfirst.frc.team4536.utilities.Utilities;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  *@author Theo
  *Class to drive while holding an angle, field-centric.
  */
-public class HoldAngle extends CommandBase {
+public class HoldAngleFeeder extends CommandBase {
 	private double forwardThrottle, strafeThrottle, turnThrottle, rAng;
+	
+	SendableChooser teamChooser;
 
-    public HoldAngle(double robotAngle) {
+    public HoldAngleFeeder() {
         requires(driveTrain);
-        rAng = robotAngle;
+        
+        teamChooser = new SendableChooser();
+    	teamChooser.addDefault("Red", 0);
+    	teamChooser.addObject("Blue", 1);
+    	SmartDashboard.putData("Team Chooser", teamChooser);
     }
 
     protected void initialize() {
-    	forwardThrottle = 0.0;
-    	strafeThrottle = 0.0;
-    	turnThrottle = 0.0;
-    	//Keep the robot from spazzing out.
+    	forwardThrottle = 0;
+    	strafeThrottle = 0;
+    	turnThrottle = 0;
+    	
+    	switch ((int) teamChooser.getSelected().hashCode()) {
+    		case 1:
+    			rAng = Constants.BLUE_FEEDER_STATION_ANGLE;
+    		break;
+    		default:
+    			rAng = Constants.RED_FEEDER_STATION_ANGLE;
+    		break;
+    	}
     }
 
     protected void execute() {

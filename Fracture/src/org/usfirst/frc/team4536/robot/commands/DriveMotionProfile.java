@@ -130,7 +130,7 @@ protected boolean isFinished() {
 }
 
 protected void end() {
-	driveTrain.Drive(0, 0, 0);
+	driveTrain.Drive(0.0, 0.0, 0.0);
 }
 		
 protected void interrupted() {
