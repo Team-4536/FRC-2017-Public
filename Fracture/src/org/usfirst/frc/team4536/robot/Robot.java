@@ -178,8 +178,6 @@ public class Robot extends IterativeRobot {
 			rotateHoldAngle.start();
 		}
 		
-		autoChooser.start();
-		
 		if (smartDashboardCommand != null) {        	
         	smartDashboardCommand.start();
         }
