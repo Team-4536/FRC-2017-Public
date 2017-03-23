@@ -39,6 +39,8 @@ public class Constants {
 	public static final double COLLISION_DETECTION_THRESHOLD = 2.0;
 	
 	public static enum PEG_POSITION {LEFT_PEG, MIDDLE_PEG, RIGHT_PEG};
+	
+	public static enum ALLIANCE_COLOR {BLUE, RED};
 
 	//OI
 	
@@ -122,9 +124,9 @@ public class Constants {
 	
 	//Score Gear Left
 	
-	public static final double GEAR_LEFT_DISTANCE = 4;//8.0; //feet
+	/*public static final double GEAR_LEFT_DISTANCE = 4;//8.0; //feet
 	public static final double GEAR_LEFT_GOAL_ANGLE = 30.0; //degrees
-	public static final double GEAR_LEFT_START_ANGLE = 64.0; //degrees
+	public static final double GEAR_LEFT_START_ANGLE = 64.0; //degrees */
 	
 	//Score Gear Middle
 
@@ -134,7 +136,32 @@ public class Constants {
 	
 	//Score Gear Right
 	
-	public static final double GEAR_RIGHT_DISTANCE = 10.0; //feet
+	/*public static final double GEAR_RIGHT_DISTANCE = 10.0; //feet
 	public static final double GEAR_RIGHT_GOAL_ANGLE = -40.0; //degrees
-	public static final double GEAR_RIGHT_START_ANGLE = -60.0; //degrees
+	public static final double GEAR_RIGHT_START_ANGLE = -60.0; //degrees*/
+	
+	// Gear Score Red Left
+	
+	public static final double GEAR_SCORE_RED_LEFT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_RED_LEFT_GOAL_ANGLE = 30.0;
+	public static final double GEAR_SCORE_RED_LEFT_START_ANGLE = 64.0;
+	
+	// Gear Score Red Right
+	
+	public static final double GEAR_SCORE_RED_RIGHT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_RED_RIGHT_GOAL_ANGLE = -40.0;
+	public static final double GEAR_SCORE_RED_RIGHT_START_ANGLE = -60.0;
+	
+	// Gear Score Blue Left
+	
+	public static final double GEAR_SCORE_BLUE_LEFT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_BLUE_LEFT_GOAL_ANGLE = 40.0;
+	public static final double GEAR_SCORE_BLUE_LEFT_START_ANGLE = 60.0;
+		
+	// Gear Score Blue Right
+		
+	public static final double GEAR_SCORE_BLUE_RIGHT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_BLUE_RIGHT_GOAL_ANGLE = -30.0;
+	public static final double GEAR_SCORE_BLUE_RIGHT_START_ANGLE = -64.0;
+	
 }
