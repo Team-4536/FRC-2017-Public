@@ -121,30 +121,12 @@ public class Constants {
 	public static final double MIDDLE_POSITION = 0.48;//TODO tweak later
 	public static final double UPPER_LIMIT = 0.74; //0.65;
 	public static final double LOWER_LIMIT = 0.35;
-
-	//Score Gear Left
-	
-<<<<<<< HEAD
-	/*public static final double GEAR_LEFT_DISTANCE = 4;//8.0; //feet
-	public static final double GEAR_LEFT_GOAL_ANGLE = 30.0; //degrees
-	public static final double GEAR_LEFT_START_ANGLE = 64.0; //degrees */
-=======
-	public static final double GEAR_LEFT_DISTANCE = 6.0;//8.0; //feet
-	public static final double GEAR_LEFT_GOAL_ANGLE = 23.0; //degrees
-	public static final double GEAR_LEFT_START_ANGLE = 64.0; //degrees
->>>>>>> b6914b3825d92f2d3365ba549d98f8a55cd190d1
 	
 	//Score Gear Middle
   
 	public static final double GEAR_MIDDLE_DISTANCE = 8.0; //feet
 	public static final double GEAR_MIDDLE_GOAL_ANGLE = 0.0; //degrees
 	public static final double GEAR_MIDDLE_START_ANGLE = 0.0; //degrees
-	
-	//Score Gear Right
-	
-	/*public static final double GEAR_RIGHT_DISTANCE = 10.0; //feet
-	public static final double GEAR_RIGHT_GOAL_ANGLE = -40.0; //degrees
-	public static final double GEAR_RIGHT_START_ANGLE = -60.0; //degrees*/
 	
 	// Gear Score Red Left
 	
