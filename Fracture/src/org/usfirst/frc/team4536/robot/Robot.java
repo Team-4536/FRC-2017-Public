@@ -34,7 +34,7 @@ public class Robot extends IterativeRobot {
 	public static boolean allowCam1 = true;
 	Command smartDashboardCommand;
 	//Command autonomousCommand;
-	//SendableChooser<Command> chooser = new SendableChooser<>();
+	//SendableChooser<Command> autoChooser = new SendableChooser<>();
 	Command driveProfile;
 	EnhancedTimer cycleTimer;
 	Command rotateHoldAngle;
@@ -48,7 +48,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		setupOneCamera();
-		//SmartDashboard.putData("Auto mode", chooser);
 		smartDashboardCommand = new SmartDashboardCommand();
 		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0.0, 0.0);
 		cycleTimer = new EnhancedTimer();
@@ -110,6 +109,9 @@ public class Robot extends IterativeRobot {
 		if (smartDashboardCommand != null) {        	
         	smartDashboardCommand.start();
         }
+		
+		//autoChooser.cancel();
+		
 		cycleTimer.stopTimer();
 		cycleTimer.resetTimer();
 	}
@@ -134,12 +136,12 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		
 		cycleTimer.startTimer();
-
+		
+		autoChooser.start();
+		
 		if (smartDashboardCommand != null) {
 			smartDashboardCommand.start();
         }
-    
-		autoChooser.start();
 		
 		try {
     		
@@ -176,10 +178,12 @@ public class Robot extends IterativeRobot {
 			rotateHoldAngle.start();
 		}
 		
+		autoChooser.start();
+		
 		if (smartDashboardCommand != null) {        	
         	smartDashboardCommand.start();
         }
-
+		
 		CommandBase.driveTrain.setLastDesiredAngle(60.0);
 		cycleTimer.startTimer();
 	}
