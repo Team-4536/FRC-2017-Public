@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AutoChooser extends CommandBase {
 	
-	SendableChooser<Integer> autoChooser;
+	SendableChooser autoChooser;
 
     public AutoChooser() {
     	autoChooser = new SendableChooser<Integer>();
