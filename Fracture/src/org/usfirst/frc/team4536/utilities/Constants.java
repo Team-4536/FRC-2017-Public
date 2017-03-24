@@ -151,5 +151,6 @@ public class Constants {
 	public static final double GEAR_SCORE_BLUE_RIGHT_DISTANCE = 4.0;
 	public static final double GEAR_SCORE_BLUE_RIGHT_GOAL_ANGLE = -30.0;
 	public static final double GEAR_SCORE_BLUE_RIGHT_START_ANGLE = -64.0;
-	
+
+	public static final double HOLD_CLIMB_MIDDLE = 180.0; //degrees
 }

@@ -49,6 +49,8 @@ public class OI {
 	
 	public static Button tankAutoRotate;
 	
+	public static Button holdMiddleClimb;
+	
 	public static void ButtonHandling() {
 		
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
@@ -115,6 +117,10 @@ public class OI {
 		
 		autoClimb = new JoystickButton(secondaryStick, RobotMap.AUTO_CLIMB);
 		autoClimb.whenPressed(new OffGround());
+		
+		holdMiddleClimb = new JoystickButton(primaryRightStick, RobotMap.HOLD_MIDDLE_CLIMB);
+		holdMiddleClimb.whenPressed(new HoldAngle(Constants.HOLD_CLIMB_MIDDLE));
+		holdMiddleClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
 	
 	}
 }
