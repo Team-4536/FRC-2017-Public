@@ -228,6 +228,7 @@ public class MotionProfile extends Profile{
 			}
 		}
 		
+		
 		/**
 		 * @author Liam
 		 * @return triangle whether the profile has developed a triangle or trapezoid profile
@@ -259,6 +260,7 @@ public class MotionProfile extends Profile{
 		 * @param time a certain period of time since the motionProfile began.
 		 * @return The distance the robot should have traveled by the end of that time.
 		 */
+
 		public double newIdealDistance(double time){
 			 double idealDistanceTravelled = 0.0;
 			  for(double i = 0.0; i < time; i += .02){
