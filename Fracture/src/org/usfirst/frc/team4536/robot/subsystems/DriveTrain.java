@@ -162,9 +162,9 @@ public class DriveTrain extends Subsystem {
      * @return forward encoder distance in inches.
      */
     public double getForwardEncoder(double time) throws EncoderException {
-    	/*if (time > 1 && forwardEncoder.get() == 0) {
+    	if (time > 1 && forwardEncoder.get() == 0) {
     		throw new EncoderException();
-    	}*/
+    	}
     	return (forwardEncoder.get()/Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD);
     }
     
