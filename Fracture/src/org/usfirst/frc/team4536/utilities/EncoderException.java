@@ -8,6 +8,7 @@ public class EncoderException extends Exception {
 	
 	public EncoderException() {
 		super();
+		System.out.println("Encoder Exception thrown");
 	}
 	
 }
