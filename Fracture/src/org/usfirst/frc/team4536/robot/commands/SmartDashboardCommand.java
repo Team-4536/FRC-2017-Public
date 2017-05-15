@@ -52,6 +52,12 @@ public class SmartDashboardCommand extends CommandBase {
     	//TESTS
     	SmartDashboard.putNumber("Last Desired Angle", driveTrain.getLastDesiredAngle());
     	SmartDashboard.putNumber("Joystick Angle", OI.primaryRightStick.getDirectionDegrees());
+    	try {
+			SmartDashboard.putNumber("Derivative", driveTrain.getNavX().getRate());
+		} catch (NavXException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
     	
     	//Encoders
     	try {

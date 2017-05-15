@@ -12,9 +12,9 @@ public class Constants {
 	public static final double TURN_SPEED_CURVE = 0.0;
 	public static final double STRAFE_SPEED_CURVE = 0.0;
 	public static final double SCALE_PARAM = 0.7; //TODO this needs fine tuning
-	public static final double FORWARD_STICTION = 0.17;
-	public static final double STRAFE_STICTION = 0.22;
-	public static final double DRIVE_TRAIN_MAX_VELOCITY = 13.0; //TODO IDK what value this should be
+	public static final double FORWARD_STICTION = 0.17; //throttle
+	public static final double STRAFE_STICTION = 0.22; //throttle
+	public static final double DRIVE_TRAIN_MAX_VELOCITY = 13.0; //TODO IDK what value this should be feet per second.
 	
 	//Camera
 
@@ -59,6 +59,9 @@ public class Constants {
 
 	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 175.0; //Ticks per inch
 	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 141.0; //Ticks per inch
+	
+	public static final double DRIVE_ENCODER_FORWARD_PROPORTIONALITY_CONSTANT = 0; //Throttle per (feet per second)
+	public static final double DRIVE_ENCODER_STRAFE_PROPORTIONALITY_CONSTANT = 0; //Throttle per (feet per second)
 
     
 	//Angle Adjustments
@@ -103,6 +106,7 @@ public class Constants {
 	// HoldAngle
 	
 	public static final double HOLD_ANGLE_P_CONSTANT = 0.02; //Throttle per degree
+	public static final double HOLD_ANGLE_D_CONSTANT = 0.02; //TODO find a value.(Throttle per degree per second)
 	public static final double HOLD_ANGLE_SCALE_PARAM = 0.6;
 	public static final double HOLD_ANGLE_SPEED_CURVE = 1.0; //unitless
 	
