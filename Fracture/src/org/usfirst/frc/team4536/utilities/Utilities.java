@@ -54,7 +54,7 @@ public final class Utilities {
 	 */
 	public static final double speedCurve(double input, double curve) {
 		//negative curves cause asymptotes, leading to overflow errors. Curves smaller than 0.1 aren't very useful.
-		double adjustedCurve = limit(curve, 0.1, Double.MAX_VALUE);
+		double adjustedCurve = limit(curve, 0.10, Double.MAX_VALUE);
 		double adjustedInput = limit(input, 1.0);
 		//if the input is negative, outputs can be undefined and positive for certain curves
 		if(input < 0.0) {
@@ -122,12 +122,12 @@ public final class Utilities {
 	 */
 	public static double angleConverter(double ang){
 		
-		ang = ang % 360;
-		if(ang > 180){
-			ang = ang -360;
+		ang = ang % 360.0;
+		if(ang > 180.0){
+			ang = ang -360.0;
 		}
-		if(ang < -180){
-			ang = ang + 360;
+		if(ang < -180.0){
+			ang = ang + 360.0;
 		}
 		return(ang);
 	}
@@ -143,7 +143,7 @@ public final class Utilities {
 
 		ang = angleConverter(ang);
 		desAng = angleConverter(desAng);
-		double backAng = angleConverter(desAng + 180);
+		double backAng = angleConverter(desAng + 180.0);
 		double faceForward = angleConverter(desAng - ang);
 		double faceBackward = angleConverter(backAng - ang);
 		if(Math.abs(faceForward) <= Math.abs(faceBackward))
@@ -170,7 +170,7 @@ public final class Utilities {
 			
 			double velocityToThrottle = velocity/maxVelocity;
 			
-			double focusedRange = 1 - stiction;
+			double focusedRange = 1.0 - stiction;
 			
 			if (velocity < 0.0) {
 				

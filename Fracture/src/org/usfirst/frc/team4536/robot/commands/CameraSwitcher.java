@@ -19,13 +19,8 @@ public class CameraSwitcher extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	if(Robot.allowCam1){
-    		Robot.allowCam1 = false;
-    	}
-    	else{
-    		Robot.allowCam1 = true;
-    	}
+    protected void execute() {   	
+    	Robot.allowCam1 = !Robot.allowCam1;
     }
 
     // Make this return true when this Command no longer needs to run execute()

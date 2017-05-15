@@ -12,7 +12,7 @@ public class DriveMotionProfile extends CommandBase{
 	Timer timer = new Timer();
 	MotionProfile prof;
 	double startingAngle;
-	double proportionalityConstant = Constants.FORWARD_NAVX_PROPORTIONALITY;
+	double proportionalityConstant = Constants.AUTO_HOLD_ANGLE_P_CONSTANT;
 
 /**
  * @author Theo
@@ -37,6 +37,7 @@ public DriveMotionProfile(double distance, double goalAngle, double startAngle) 
  */
 public DriveMotionProfile(double distance, double maxSpeed, double maxAcceleration, double goalAngle, double startAngle) {
 
+	//startingAngle = startAngle;
 	requires(driveTrain);
 	prof = new MotionProfile(distance, maxSpeed, maxAcceleration, goalAngle, startAngle);
 }
@@ -77,18 +78,19 @@ public double getNeededTime(){
 
 protected void initialize() {
 	
+	driveTrain.resetCollision();
 	driveTrain.resetEncoders();
 	timer.reset();
 	timer.start();
 	
 	try {
 		
+		//driveTrain.getNavX().getAngle();
 		startingAngle = driveTrain.getNavX().getAngle();
 		setTimeout(prof.getTimeNeeded() + Constants.PROFILE_TIMEOUT_OFFSET);
 		
 	}
 	catch(NavXException e) {
-		end();
 	}
 	
 }
@@ -105,7 +107,6 @@ protected void execute() {
 
 	}
 	catch(NavXException e) {
-		end();
 	}
 	
 	if (driveTrain.checkForCollision()) {
@@ -115,11 +116,21 @@ protected void execute() {
 }
 
 protected boolean isFinished() {
-	return false;
+	try {
+		if (getTime() > getNeededTime() + Constants.PROFILE_TIMEOUT_OFFSET) {
+			return true;
+		}
+		double t = driveTrain.getNavX().getAngle();
+		return false;
+
+	}
+	catch(NavXException e) {
+		return true;
+	}
 }
 
 protected void end() {
-	driveTrain.Drive(0, 0, 0);
+	driveTrain.Drive(0.0, 0.0, 0.0);
 }
 		
 protected void interrupted() {

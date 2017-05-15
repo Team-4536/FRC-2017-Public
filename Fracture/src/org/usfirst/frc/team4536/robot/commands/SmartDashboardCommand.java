@@ -7,6 +7,7 @@ import org.usfirst.frc.team4536.utilities.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
  * @author Noah
@@ -16,9 +17,15 @@ public class SmartDashboardCommand extends CommandBase {
 	
 	EnhancedTimer timer;
 	double time;
+	SendableChooser team;
 	
     public SmartDashboardCommand() {
     	timer = new EnhancedTimer();
+    	
+    	team = new SendableChooser();
+    	team.addDefault("Red", 0);
+    	team.addObject("Blue", 1);
+    	SmartDashboard.putData("Team Chooser", team);
     }
 
     // Called just before this Command runs the first time
@@ -26,7 +33,18 @@ public class SmartDashboardCommand extends CommandBase {
     	timer.resetTimer();
     	timer.startTimer();
     	
-    	SmartDashboard.putNumber("Error", 0);
+    	
+    	//OI.feederStationAngle = -Constants.FEEDER_STATION_ANGLE;
+    	
+    	switch ((int) team.getSelected().hashCode()) {
+		case 1:
+			OI.feederStationAngle = Constants.BLUE_FEEDER_STATION_ANGLE;
+		break;
+		default:
+			OI.feederStationAngle = Constants.RED_FEEDER_STATION_ANGLE;
+		break;
+    	}
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -37,6 +55,15 @@ public class SmartDashboardCommand extends CommandBase {
      */
     
     protected void execute() {
+    	
+    	switch ((int) team.getSelected().hashCode()) {
+		case 1:
+			OI.feederStationAngle = Constants.BLUE_FEEDER_STATION_ANGLE;
+		break;
+		default:
+			OI.feederStationAngle = Constants.RED_FEEDER_STATION_ANGLE;
+		break;
+    	}
     	
     	time = timer.getTime();
     	
@@ -65,15 +92,19 @@ public class SmartDashboardCommand extends CommandBase {
     	SmartDashboard.putNumber("Joystick Angle", OI.primaryRightStick.getDirectionDegrees());
     	
     	//Encoders
-    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder());
-    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate());
-    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder());
-    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate());
+    	try {
+    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(timer.getTime()));
+    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(timer.getTime()));
+    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(timer.getTime()));
+    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(timer.getTime()));
+    	}
+    	catch(EncoderException e) {
+    	}
     	
     	SmartDashboard.putBoolean("Collision:", driveTrain.checkForCollision());
     	SmartDashboard.putNumber("Jerk", driveTrain.getJerk());
-
-
+    	
+    	SmartDashboard.putData(driveTrain);
     }
 
 	// Make this return true when this Command no longer needs to run execute()
