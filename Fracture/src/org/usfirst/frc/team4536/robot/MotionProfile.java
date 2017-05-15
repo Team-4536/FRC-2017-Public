@@ -70,8 +70,17 @@ public class MotionProfile extends Profile{
 		 */
 		public double getForwardThrottle(double time){
 			
-			return (Utilities.adjustForStiction(Math.cos(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time), 
-					Constants.FORWARD_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY));
+			return (Utilities.adjustForStiction(getForwardVelocity(time), Constants.FORWARD_STICTION, 
+					Constants.DRIVE_TRAIN_MAX_VELOCITY));
+		}
+		
+		/**
+		 * @author Theo
+		 * @param time the amount of time, in seconds, since the profile started.
+		 * @return the robots current forward velocity in feet per second.
+		 */
+		public double getForwardVelocity(double time){
+			return Math.cos(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time);
 		}
 		
 		/**
@@ -81,9 +90,17 @@ public class MotionProfile extends Profile{
 		 */
 		public double getStrafeThrottle(double time){
 			
-			return (Utilities.adjustForStiction(Math.sin(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time), 
-					Constants.STRAFE_STICTION, Constants.DRIVE_TRAIN_MAX_VELOCITY/Constants.FORWARD_STRAFE_RATIO ));
+			return (Utilities.adjustForStiction(getStrafeVelocity(time), Constants.STRAFE_STICTION, 
+					Constants.DRIVE_TRAIN_MAX_VELOCITY/Constants.FORWARD_STRAFE_RATIO ));
 				}
+		/**
+		 * @author Theo
+		 * @param time the amount of time, in seconds, since the profile started.
+		 * @return the robots current strafing velocity in feet per second.
+		 */
+		public double getStrafeVelocity(double time){
+			return Math.sin(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time);
+		}
 		
 		/**
 		 * @author Liam

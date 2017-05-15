@@ -31,6 +31,20 @@ public DriveMotionProfile(double distance, double goalAngle, double startAngle) 
 /**
  * @author Theo
  * @param distance the distance we want the robot to travel. Can be negative or positive. In feet.
+ * @param goalAngle the angle at which we want the robot to be moving. In degrees.
+ * @param startAngle the angle the robot is facing. In degrees.
+ * @param withEncoders Tells us whether the motion profile will use encoders to improve its accuracy.
+ * Uses the default values for max speed and max acceleration.
+ */
+public DriveMotionProfile(double distance, double goalAngle, double startAngle,boolean withEncoders) {
+	
+	this(distance, Constants.DEFAULT_SPEED, Constants.DEFAULT_ACCELERATION, goalAngle, startAngle);
+	this.withEncoders = withEncoders;
+}
+
+/**
+ * @author Theo
+ * @param distance the distance we want the robot to travel. Can be negative or positive. In feet.
  * @param maxSpeed the maximum possible speed we want the robot to be traveling at. Always positive. In feet/second.
  * @param maxAcceleration the maximum change in speed we will allow to occur. Always positive. In feet/second squared.
  * @param goalAngle the angle at which we want the robot to be moving. In degrees.
@@ -68,6 +82,7 @@ public DriveMotionProfile(double distance, double maxSpeed, double maxAccelerati
  * @param goalAngle the angle at which we want the robot to be moving. In degrees.
  * @param startAngle the angle the robot is facing. In degrees.
  * @param navXProportionality A custom value for NavXProportionality that can be used to override the default. In throttle/inch.
+ * @param withEncoders Tells us whether the motion profile will use encoders to improve its accuracy.
  * similar to the one above but allows overriding the default value of the navXProportionality constant.
  */
 public DriveMotionProfile(double distance, double maxSpeed, double maxAcceleration, double goalAngle, double startAngle, double navXProportionality, boolean withEncoders) {
@@ -128,8 +143,8 @@ protected void execute() {
     	
     	if(withEncoders == true){
     		try {
-    			forwardThrottle = forwardThrottle - driveTrain.getForwardRate(getTime()) * Constants.DRIVE_ENCODER_FORWARD_PROPORTIONALITY_CONSTANT;
-    			strafeThrottle = strafeThrottle - driveTrain.getStrafeRate(getTime()) * Constants.DRIVE_ENCODER_STRAFE_PROPORTIONALITY_CONSTANT;
+    			forwardThrottle += (prof.getForwardVelocity(getTime()) - driveTrain.getForwardRate(getTime())) * Constants.DRIVE_ENCODER_FORWARD_PROPORTIONALITY_CONSTANT;
+    			strafeThrottle += (prof.getStrafeVelocity(getTime()) - driveTrain.getStrafeRate(getTime())) * Constants.DRIVE_ENCODER_STRAFE_PROPORTIONALITY_CONSTANT;
     		}
     		catch(EncoderException e){
     			forwardThrottle = 0;

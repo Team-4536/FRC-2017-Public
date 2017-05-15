@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GearScoreRedLeft extends CommandGroup {
 
     public GearScoreRedLeft() {
-    	addSequential(new DriveMotionProfile(Constants.GEAR_LEFT_DISTANCE, Constants.GEAR_LEFT_GOAL_ANGLE, Constants.GEAR_LEFT_START_ANGLE));
+    	addSequential(new DriveMotionProfile(Constants.GEAR_LEFT_DISTANCE, Constants.GEAR_LEFT_GOAL_ANGLE, Constants.GEAR_LEFT_START_ANGLE, true));
         addSequential(new DriveMotionProfile(2.0, 64, 64));
 		// Add Commands here:
         // e.g. addSequential(new Command1());
