@@ -1,13 +1,14 @@
 package org.usfirst.frc.team4536.robot.commands;
 
 import org.usfirst.frc.team4536.utilities.Constants;
+import org.usfirst.frc.team4536.utilities.NavXException;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ScoreGear extends Command {
+public class ScoreGear extends CommandBase {
 
 	Constants.PEG_POSITION desiredPeg;
 	

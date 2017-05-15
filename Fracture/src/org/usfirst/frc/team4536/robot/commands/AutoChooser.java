@@ -3,6 +3,7 @@ package org.usfirst.frc.team4536.robot.commands;
 import org.usfirst.frc.team4536.utilities.Constants;
 import org.usfirst.frc.team4536.utilities.NavXException;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -15,15 +16,15 @@ public class AutoChooser extends CommandBase {
 	SendableChooser autoChooser;
 
     public AutoChooser() {
-    	autoChooser = new SendableChooser();
+    	autoChooser = new SendableChooser<Integer>();
     	
     	autoChooser.addDefault(" Do Nothing", 0);
     	autoChooser.addObject(" Cross Baseline", 1);
-    	autoChooser.addObject(" Score Gear Left",  2);
-    	autoChooser.addObject(" Score Gear Middle", 3);
-    	autoChooser.addObject(" Score Gear Right", 4);
-    	autoChooser.addObject(" Test ", 5);
-    	autoChooser.addObject("AutoHoldAngle", 6);
+    	autoChooser.addObject(" Score Gear RedLeft",  2);
+    	autoChooser.addObject(" Score Gear RedRight",  3);
+    	autoChooser.addObject(" Score Gear Middle", 4);
+    	autoChooser.addObject(" Score Gear BlueLeft",  5);
+    	autoChooser.addObject(" Score Gear BlueRight", 6);
     	SmartDashboard.putData(" Auto Chooser", autoChooser);
     }
     
@@ -44,25 +45,25 @@ public class AutoChooser extends CommandBase {
     			new CrossBaseline().start();
     		break;
     		case 2:
-    			setInitialAngle(Constants.GEAR_LEFT_START_ANGLE);
-    			(new ScoreGear(Constants.PEG_POSITION.LEFT_PEG)).start();
+    			setInitialAngle(Constants.GEAR_SCORE_RED_LEFT_START_ANGLE);
+    			(new GearScoreRedLeft()).start();
     		break;
     		case 3:
+    			setInitialAngle(Constants.GEAR_SCORE_RED_RIGHT_START_ANGLE);
+    			(new GearScoreRedRight()).start();
+    		break;
+    		case 4:
     			setInitialAngle(Constants.GEAR_MIDDLE_START_ANGLE);
     			(new ScoreGear(Constants.PEG_POSITION.MIDDLE_PEG)).start();
     		break;
-    		case 4:
-    			setInitialAngle(Constants.GEAR_RIGHT_START_ANGLE);
-    			(new ScoreGear(Constants.PEG_POSITION.RIGHT_PEG)).start();
-    		break;
     		case 5:
-    			setInitialAngle(0.0);
-    			new DriveMotionProfile(2.0, 5.0, 5.0).start();
-    		break;	
+    			setInitialAngle(Constants.GEAR_SCORE_BLUE_LEFT_START_ANGLE);
+    			(new GearScoreRedLeft()).start();
+    		break;
     		case 6:
-    			setInitialAngle(0.0);
-    			new AutoHoldAngle(-60, 120, 0.2, 2.0).start();
-    		break;	
+    			setInitialAngle(Constants.GEAR_SCORE_BLUE_RIGHT_START_ANGLE);
+    			(new GearScoreRedRight()).start();
+    		break;
     		default:
     			setInitialAngle(0.0);
     			new DoNothing().start();

@@ -2,6 +2,7 @@ package org.usfirst.frc.team4536.robot.commands;
 
 import org.usfirst.frc.team4536.utilities.Constants;
 import org.usfirst.frc.team4536.utilities.EnhancedTimer;
+import org.usfirst.frc.team4536.utilities.NavXException;
 
 /**
  * @author Eddie
