@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4536.robot.commands;
 
 import org.usfirst.frc.team4536.utilities.Constants;
+import org.usfirst.frc.team4536.utilities.EncoderException;
 import org.usfirst.frc.team4536.utilities.NavXException;
 import org.usfirst.frc.team4536.robot.MotionProfile;
 import org.usfirst.frc.team4536.robot.OI;
@@ -13,6 +14,7 @@ public class DriveMotionProfile extends CommandBase{
 	MotionProfile prof;
 	double startingAngle;
 	double proportionalityConstant = Constants.AUTO_HOLD_ANGLE_P_CONSTANT;
+	boolean withEncoders = false;
 
 /**
  * @author Theo
@@ -59,6 +61,24 @@ public DriveMotionProfile(double distance, double maxSpeed, double maxAccelerati
 }
 
 /**
+ * @author Theo
+ * @param distance the distance we want the robot to travel. Can be negative or positive. In feet.
+ * @param maxSpeed the maximum possible speed we want the robot to be traveling at. Always positive. In feet/second.
+ * @param maxAcceleration the maximum change in speed we will allow to occur. Always positive. In feet/second squared.
+ * @param goalAngle the angle at which we want the robot to be moving. In degrees.
+ * @param startAngle the angle the robot is facing. In degrees.
+ * @param navXProportionality A custom value for NavXProportionality that can be used to override the default. In throttle/inch.
+ * similar to the one above but allows overriding the default value of the navXProportionality constant.
+ */
+public DriveMotionProfile(double distance, double maxSpeed, double maxAcceleration, double goalAngle, double startAngle, double navXProportionality, boolean withEncoders) {
+	
+	this(distance, maxSpeed, maxAcceleration, goalAngle, startAngle);
+	proportionalityConstant = navXProportionality;
+	this.withEncoders = withEncoders;
+	
+}
+
+/**
  * @author Liam
  * @return time in seconds since the command was started.
  */
@@ -102,8 +122,22 @@ protected void execute() {
 		double angleDif = Utilities.angleDifference(driveTrain.getNavX().getAngle(), startingAngle);
     	
     	double turnThrottle = angleDif * Constants.AUTO_HOLD_ANGLE_P_CONSTANT;
+    	double forwardThrottle = prof.getForwardThrottle(getTime());
+    	double strafeThrottle = prof.getStrafeThrottle(getTime());
+    	
+    	
+    	if(withEncoders == true){
+    		try {
+    			forwardThrottle = forwardThrottle - driveTrain.getForwardRate(getTime()) * Constants.DRIVE_ENCODER_FORWARD_PROPORTIONALITY_CONSTANT;
+    			strafeThrottle = strafeThrottle - driveTrain.getStrafeRate(getTime()) * Constants.DRIVE_ENCODER_STRAFE_PROPORTIONALITY_CONSTANT;
+    		}
+    		catch(EncoderException e){
+    			forwardThrottle = 0;
+    			strafeThrottle = 0;
+    		}
+    	}
     		
-		driveTrain.Drive(prof.getForwardThrottle(getTime()), prof.getStrafeThrottle(getTime()), turnThrottle);
+		driveTrain.Drive(forwardThrottle, strafeThrottle, turnThrottle);
 
 	}
 	catch(NavXException e) {
