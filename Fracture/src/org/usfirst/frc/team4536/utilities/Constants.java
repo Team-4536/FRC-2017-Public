@@ -14,7 +14,7 @@ public class Constants {
 	public static final double SCALE_PARAM = 0.7; //TODO this needs fine tuning
 	public static final double FORWARD_STICTION = 0.17;
 	public static final double STRAFE_STICTION = 0.22;
-	public static final double DRIVE_TRAIN_MAX_VELOCITY = 13.0; //TODO IDK what value this should be
+	public static final double DRIVE_TRAIN_MAX_VELOCITY = 14.0; //feet per second Old value: 13
 	
 	//Camera
 
@@ -57,8 +57,8 @@ public class Constants {
 	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 175.0; //Ticks per inch
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 141.0; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 20.2; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 20.2; //Ticks per inch
 
     
 	//Angle Adjustments
@@ -124,9 +124,10 @@ public class Constants {
 	
 	//Score Gear Middle
   
-	public static final double GEAR_MIDDLE_DISTANCE = 8.0; //feet
+	public static final double GEAR_MIDDLE_DISTANCE = 8.8; //feet
 	public static final double GEAR_MIDDLE_GOAL_ANGLE = 0.0; //degrees
 	public static final double GEAR_MIDDLE_START_ANGLE = 0.0; //degrees
+	public static final double GEAR_MIDDLE_SPEED = 2.5; //feet per second
 	
 	// Gear Score Red Left
 	
