@@ -33,7 +33,7 @@ public class HoldAngle extends CommandBase {
         	strafeThrottle = Math.sin(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * Constants.FORWARD_STRAFE_RATIO * -speedCurveMagnitude;
 
         	double angleDif = Utilities.angleDifference(driveTrain.getNavX().getAngle(), rAng);
-        	turnThrottle = angleDif * Constants.HOLD_ANGLE_P_CONSTANT + angleSpeed * Constants.HOLD_ANGLE_D_CONSTANT;
+        	turnThrottle = angleDif * Constants.HOLD_ANGLE_P_CONSTANT - angleSpeed * Constants.HOLD_ANGLE_D_CONSTANT;
         	
         	turnThrottle = Utilities.limit(turnThrottle, 1 - Constants.HOLD_ANGLE_SCALE_PARAM);
         	forwardThrottle = Utilities.scale(forwardThrottle, strafeThrottle, 1 - Math.abs(turnThrottle));
