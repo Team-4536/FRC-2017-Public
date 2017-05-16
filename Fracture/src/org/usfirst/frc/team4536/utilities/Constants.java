@@ -103,6 +103,7 @@ public class Constants {
 	// HoldAngle
 	
 	public static final double HOLD_ANGLE_P_CONSTANT = 0.02; //Throttle per degree
+	public static final double HOLD_ANGLE_D_CONSTANT = 0.02; //TODO find a value.(Throttle per degree per second)
 	public static final double HOLD_ANGLE_SCALE_PARAM = 0.6;
 	public static final double HOLD_ANGLE_SPEED_CURVE = 1.0; //unitless
 	

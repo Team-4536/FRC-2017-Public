@@ -28,8 +28,10 @@ public class RotateFieldCentric extends CommandBase {
     	try {
     		
     		double speedCurveMagnitude = Utilities.speedCurve(OI.primaryRightStick.getModMagnitude(), Constants.FIELD_SPEED_CURVE);
-    		forwardThrottle = Math.cos(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * speedCurveMagnitude;
-        	strafeThrottle = Math.sin(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * Constants.FORWARD_STRAFE_RATIO * -speedCurveMagnitude;
+    		forwardThrottle = Math.cos(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees()))
+    				* speedCurveMagnitude;
+        	strafeThrottle = Math.sin(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees()))
+        			* Constants.FORWARD_STRAFE_RATIO * -speedCurveMagnitude;
         	
         	if(turnThrottle>=0.0)turnThrottle = 1.0 - Constants.ROTATE_SCALE_PARAM;
         	else turnThrottle = -(1.0 - Constants.ROTATE_SCALE_PARAM);
