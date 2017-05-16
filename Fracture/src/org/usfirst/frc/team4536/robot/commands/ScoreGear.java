@@ -22,7 +22,7 @@ public class ScoreGear extends CommandBase {
     		(new GearScoreRedLeft()).start();
     	}
     	else if (desiredPeg == Constants.PEG_POSITION.MIDDLE_PEG) {
-    		(new DriveMotionProfile(Constants.GEAR_MIDDLE_DISTANCE, Constants.GEAR_MIDDLE_GOAL_ANGLE, Constants.GEAR_MIDDLE_START_ANGLE)).start();
+    		(new DriveMotionProfile(Constants.GEAR_MIDDLE_DISTANCE, Constants.GEAR_MIDDLE_SPEED, Constants.DEFAULT_ACCELERATION, Constants.GEAR_MIDDLE_GOAL_ANGLE, Constants.GEAR_MIDDLE_START_ANGLE)).start();
     	}
     	else if (desiredPeg == Constants.PEG_POSITION.RIGHT_PEG) {
     		(new GearScoreRedRight()).start();
