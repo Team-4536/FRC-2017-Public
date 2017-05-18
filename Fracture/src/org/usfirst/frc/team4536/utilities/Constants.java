@@ -57,9 +57,12 @@ public class Constants {
 	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 20.2; //Ticks per inch
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 20.2; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 18.6; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 18.6; //Ticks per inch
 
+	public static final double MOTION_PROFILE_VELOCITY_STRAFE = 0.1; //throttle per (feet per second)
+	public static final double MOTION_PROFILE_VELOCITY_FORWARD = 0.1; //throttle per (feet per second)
+	public static final double MOTION_PROFILE_NAVX_PORPORTIONALITY = 0.007;
     
 	//Angle Adjustments
 	
@@ -128,7 +131,7 @@ public class Constants {
 	public static final double GEAR_MIDDLE_DISTANCE = 8.8; //feet
 	public static final double GEAR_MIDDLE_GOAL_ANGLE = 0.0; //degrees
 	public static final double GEAR_MIDDLE_START_ANGLE = 0.0; //degrees
-	public static final double GEAR_MIDDLE_SPEED = 2.5; //feet per second
+	public static final double GEAR_MIDDLE_SPEED = 3.0; //feet per second
 	
 	// Gear Score Red Left
 	
