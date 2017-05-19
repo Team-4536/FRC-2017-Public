@@ -83,6 +83,7 @@ public class MotionProfile extends Profile{
 			return Math.cos(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time);
 		}
 		
+		
 		/**
 		 * @author Theo
 		 * @param time how long its been since the profile started. In seconds.
@@ -262,6 +263,14 @@ public class MotionProfile extends Profile{
 		public double getDistance() {
 			
 			return distance;
+		}
+		
+		public double getForwardDistance(double time){
+			return idealDistance(time) * Math.cos(Math.toRadians(desiredAngle - robotAngle));
+		}
+		
+		public double getStrafeDistance(double time){
+			return idealDistance(time) * Math.sin(Math.toRadians(desiredAngle - robotAngle));
 		}
 		
 		/**
