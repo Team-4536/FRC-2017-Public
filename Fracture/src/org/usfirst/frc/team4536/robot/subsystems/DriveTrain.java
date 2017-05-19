@@ -151,7 +151,7 @@ public class DriveTrain extends Subsystem {
      * @return strafe encoder distance in feet.
      */
     public double getStrafeEncoder(double time) throws EncoderException {
-    	if (time > 1 && Math.abs(strafeEncoder.get()) < 0.1) {
+    	if (time > 1 && Math.abs(strafeEncoder.get()) < 0.001) {
     		throw new EncoderException();
     	}
     	return (strafeEncoder.get()/Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE)/12;
@@ -162,7 +162,7 @@ public class DriveTrain extends Subsystem {
      * @return forward encoder distance in feet.
      */
     public double getForwardEncoder(double time) throws EncoderException {
-    	if (time > 1 && Math.abs(forwardEncoder.get()) < 0.1) {
+    	if (time > 1 && Math.abs(forwardEncoder.get()) < 0.001) {
     		throw new EncoderException();
     	}
     	return -(forwardEncoder.get()/Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD)/12;
@@ -173,7 +173,7 @@ public class DriveTrain extends Subsystem {
     * @return forward encoder rate(velocity) in feet/second.
     */
     public double getForwardRate(double time) throws EncoderException {
-    	if (time > 1 && Math.abs(forwardEncoder.get()) < 0.1) {
+    	if (time > 1 && Math.abs(forwardEncoder.get()) < 0.001) {
     		throw new EncoderException();
     	}
     	return -forwardEncoder.getRate()/(12*Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD);
@@ -184,7 +184,7 @@ public class DriveTrain extends Subsystem {
      * @return strafe encoder rate(velocity) in feet/second.
      */
     public double getStrafeRate(double time) throws EncoderException {
-    	if (time > 1 && Math.abs(strafeEncoder.get()) < 0.1) {
+    	if (time > 1 && Math.abs(strafeEncoder.get()) < 0.001) {
     		throw new EncoderException();
     	}
     	return strafeEncoder.getRate()/(12*Constants.DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE);
