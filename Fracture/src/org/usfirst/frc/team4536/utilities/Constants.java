@@ -53,12 +53,15 @@ public class Constants {
 	//Profile constants
 	//These might need changing, they're mostly just copied from last year.
 
-	public static final double DEFAULT_SPEED = 2.0; //Measured in meters per second.
-	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
+	public static final double DEFAULT_SPEED = 3.0; //Measured in feet per second.
+	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in feet per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
 	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 18.6; //Ticks per inch
 	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 18.6; //Ticks per inch
+	
+	public static final double MOTION_PROFILE_POSITION_FORWARD = 1.0; //throttle per feet
+	public static final double MOTION_PROFILE_POSITION_STRAFE = 1.0; //throttle per feet
 
 	public static final double MOTION_PROFILE_VELOCITY_STRAFE = 0.1; //throttle per (feet per second)
 	public static final double MOTION_PROFILE_VELOCITY_FORWARD = 0.1; //throttle per (feet per second)
@@ -135,8 +138,8 @@ public class Constants {
 	
 	// Gear Score Red Left
 	
-	public static final double GEAR_SCORE_RED_LEFT_DISTANCE = 4.0;
-	public static final double GEAR_SCORE_RED_LEFT_GOAL_ANGLE = 30.0;
+	public static final double GEAR_SCORE_RED_LEFT_DISTANCE = 11.167; //11.167;
+	public static final double GEAR_SCORE_RED_LEFT_GOAL_ANGLE = 54.0;
 	public static final double GEAR_SCORE_RED_LEFT_START_ANGLE = 64.0;
 	
 	// Gear Score Red Right
@@ -153,8 +156,8 @@ public class Constants {
 		
 	// Gear Score Blue Right
 		
-	public static final double GEAR_SCORE_BLUE_RIGHT_DISTANCE = 4.0;
-	public static final double GEAR_SCORE_BLUE_RIGHT_GOAL_ANGLE = -30.0;
+	public static final double GEAR_SCORE_BLUE_RIGHT_DISTANCE =11.167; //11.167;
+	public static final double GEAR_SCORE_BLUE_RIGHT_GOAL_ANGLE = -54.0;
 	public static final double GEAR_SCORE_BLUE_RIGHT_START_ANGLE = -64.0;
 
 	public static final double HOLD_CLIMB_MIDDLE = 180.0; //degrees
