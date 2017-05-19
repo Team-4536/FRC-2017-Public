@@ -145,6 +145,8 @@ protected void execute() {
     		try {
     			forwardThrottle += (prof.getForwardVelocity(getTime()) - driveTrain.getForwardRate(getTime())) * Constants.MOTION_PROFILE_VELOCITY_FORWARD;
     			strafeThrottle += (prof.getStrafeVelocity(getTime()) - driveTrain.getStrafeRate(getTime())) * Constants.MOTION_PROFILE_VELOCITY_STRAFE;
+    			forwardThrottle += (prof.getForwardDistance(getTime()) - driveTrain.getForwardEncoder(getTime())) * Constants.MOTION_PROFILE_POSITION_FORWARD;
+    			strafeThrottle += (prof.getStrafeDistance(getTime()) - driveTrain.getStrafeEncoder(getTime())) * Constants.MOTION_PROFILE_POSITION_STRAFE;
     		}
     		catch(EncoderException e){
     			forwardThrottle = 0;
