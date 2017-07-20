@@ -1,13 +1,14 @@
 package org.usfirst.frc.team4536.robot.commands;
 
 import org.usfirst.frc.team4536.utilities.Constants;
+import org.usfirst.frc.team4536.utilities.NavXException;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ScoreGear extends Command {
+public class ScoreGear extends CommandBase {
 
 	Constants.PEG_POSITION desiredPeg;
 	
@@ -21,7 +22,7 @@ public class ScoreGear extends Command {
     		(new GearScoreRedLeft()).start();
     	}
     	else if (desiredPeg == Constants.PEG_POSITION.MIDDLE_PEG) {
-    		(new DriveMotionProfile(Constants.GEAR_MIDDLE_DISTANCE, Constants.GEAR_MIDDLE_GOAL_ANGLE, Constants.GEAR_MIDDLE_START_ANGLE)).start();
+    		(new DriveMotionProfile(Constants.GEAR_MIDDLE_DISTANCE, Constants.GEAR_MIDDLE_SPEED, Constants.DEFAULT_ACCELERATION, Constants.GEAR_MIDDLE_GOAL_ANGLE, Constants.GEAR_MIDDLE_START_ANGLE)).start();
     	}
     	else if (desiredPeg == Constants.PEG_POSITION.RIGHT_PEG) {
     		(new GearScoreRedRight()).start();

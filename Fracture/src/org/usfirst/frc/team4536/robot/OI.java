@@ -6,6 +6,8 @@ import org.usfirst.frc.team4536.utilities.Constants;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -47,11 +49,12 @@ public class OI {
 	
 	public static Button tankAutoRotate;
 	
+	public static Button holdMiddleClimb;
+	
 	public static void ButtonHandling() {
-		//setFeederStationAngle();
 		
 		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(Constants.BLUE_FEEDER_STATION_ANGLE));
+		holdFeeder.whenPressed(new HoldAngleFeeder());
 		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
 		
 		holdLeft = new JoystickButton(primaryRightStick, RobotMap.HOLD_LEFT_BUTTON);
@@ -114,14 +117,10 @@ public class OI {
 		
 		autoClimb = new JoystickButton(secondaryStick, RobotMap.AUTO_CLIMB);
 		autoClimb.whenPressed(new OffGround());
+		
+		holdMiddleClimb = new JoystickButton(primaryRightStick, RobotMap.HOLD_MIDDLE_CLIMB);
+		holdMiddleClimb.whenPressed(new HoldAngle(Constants.HOLD_CLIMB_MIDDLE));
+		holdMiddleClimb.whenPressed(new DriveSlidePositions(Constants.TOP_POSITION));
 	
 	}
-	
-	/*
-	public static void setFeederStationAngle(){
-		holdFeeder = new JoystickButton(primaryRightStick, RobotMap.HOLD_FEEDER_BUTTON);
-		holdFeeder.whenPressed(new HoldAngle(feederStationAngle));
-		holdFeeder.whenPressed(new DriveSlidePositions(Constants.GEAR_POSITION));
-	}
-	*/
 }

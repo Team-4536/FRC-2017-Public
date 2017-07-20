@@ -5,9 +5,7 @@ import org.usfirst.frc.team4536.robot.MotionProfile;
 import org.usfirst.frc.team4536.robot.OI;
 import org.usfirst.frc.team4536.utilities.*;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
  * @author Noah
@@ -15,39 +13,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
  */
 public class SmartDashboardCommand extends CommandBase {
 	
-	EnhancedTimer timer;
-	double time;
-	SendableChooser team;
-	
     public SmartDashboardCommand() {
-    	timer = new EnhancedTimer();
-    	
-    	team = new SendableChooser();
-    	team.addDefault("Red", 0);
-    	team.addObject("Blue", 1);
-    	SmartDashboard.putData("Team Chooser", team);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	timer.resetTimer();
-    	timer.startTimer();
-    	
     	
     	//OI.feederStationAngle = -Constants.FEEDER_STATION_ANGLE;
-    	
-    	switch ((int) team.getSelected().hashCode()) {
-		case 1:
-			OI.feederStationAngle = Constants.BLUE_FEEDER_STATION_ANGLE;
-		break;
-		default:
-			OI.feederStationAngle = Constants.RED_FEEDER_STATION_ANGLE;
-		break;
-    	}
-    	
     }
-
-    // Called repeatedly when this Command is scheduled to run
     
     /**
      * @author Eddie
@@ -55,17 +28,6 @@ public class SmartDashboardCommand extends CommandBase {
      */
     
     protected void execute() {
-    	
-    	switch ((int) team.getSelected().hashCode()) {
-		case 1:
-			OI.feederStationAngle = Constants.BLUE_FEEDER_STATION_ANGLE;
-		break;
-		default:
-			OI.feederStationAngle = Constants.RED_FEEDER_STATION_ANGLE;
-		break;
-    	}
-    	
-    	time = timer.getTime();
     	
     	//NavX
     	try {
@@ -90,13 +52,19 @@ public class SmartDashboardCommand extends CommandBase {
     	//TESTS
     	SmartDashboard.putNumber("Last Desired Angle", driveTrain.getLastDesiredAngle());
     	SmartDashboard.putNumber("Joystick Angle", OI.primaryRightStick.getDirectionDegrees());
+    	try {
+			SmartDashboard.putNumber("Derivative", driveTrain.getNavX().getRate());
+		} catch (NavXException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
     	
     	//Encoders
     	try {
-    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(timer.getTime()));
-    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(timer.getTime()));
-    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(timer.getTime()));
-    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(timer.getTime()));
+    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(0));//timer.getTime()));
+    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(0));//timer.getTime()));
+    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(0));//timer.getTime()));
+    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(0));//timer.getTime()));
     	}
     	catch(EncoderException e) {
     	}
@@ -114,7 +82,6 @@ public class SmartDashboardCommand extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	timer.stopTimer();
     }
 
     // Called when another command which requires one or more of the same

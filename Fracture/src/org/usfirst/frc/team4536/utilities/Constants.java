@@ -14,7 +14,7 @@ public class Constants {
 	public static final double SCALE_PARAM = 0.7; //TODO this needs fine tuning
 	public static final double FORWARD_STICTION = 0.17;
 	public static final double STRAFE_STICTION = 0.22;
-	public static final double DRIVE_TRAIN_MAX_VELOCITY = 13.0; //TODO IDK what value this should be
+	public static final double DRIVE_TRAIN_MAX_VELOCITY = 14.0; //feet per second Old value: 13
 	
 	//Camera
 
@@ -39,6 +39,8 @@ public class Constants {
 	public static final double COLLISION_DETECTION_THRESHOLD = 1.0;
 	
 	public static enum PEG_POSITION {LEFT_PEG, MIDDLE_PEG, RIGHT_PEG};
+	
+	public static enum ALLIANCE_COLOR {BLUE, RED};
 
 	//OI
 	
@@ -55,8 +57,8 @@ public class Constants {
 	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 175.0; //Ticks per inch
-	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 141.0; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 20.2; //Ticks per inch
+	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 20.2; //Ticks per inch
 
     
 	//Angle Adjustments
@@ -101,6 +103,7 @@ public class Constants {
 	// HoldAngle
 	
 	public static final double HOLD_ANGLE_P_CONSTANT = 0.02; //Throttle per degree
+	public static final double HOLD_ANGLE_D_CONSTANT = 0.02; //TODO find a value.(Throttle per degree per second)
 	public static final double HOLD_ANGLE_SCALE_PARAM = 0.6;
 	public static final double HOLD_ANGLE_SPEED_CURVE = 1.0; //unitless
 	
@@ -114,27 +117,42 @@ public class Constants {
 	
 	//Gear Slide
 	
-	public static final double TOP_POSITION = 0.65;
-	public static final double GEAR_POSITION = 0.30;
+	public static final double TOP_POSITION = 0.73; //0.65;
+	public static final double GEAR_POSITION = 0.36;
 	public static final double MIDDLE_POSITION = 0.48;//TODO tweak later
-	public static final double UPPER_LIMIT = 0.65;
-	public static final double LOWER_LIMIT = 0.29;
-
-	//Score Gear Left
-	
-	public static final double GEAR_LEFT_DISTANCE = 6.0;//8.0; //feet
-	public static final double GEAR_LEFT_GOAL_ANGLE = 23.0; //degrees
-	public static final double GEAR_LEFT_START_ANGLE = 64.0; //degrees
+	public static final double UPPER_LIMIT = 0.74; //0.65;
+	public static final double LOWER_LIMIT = 0.35;
 	
 	//Score Gear Middle
   
-	public static final double GEAR_MIDDLE_DISTANCE = 8.0; //feet
+	public static final double GEAR_MIDDLE_DISTANCE = 8.8; //feet
 	public static final double GEAR_MIDDLE_GOAL_ANGLE = 0.0; //degrees
 	public static final double GEAR_MIDDLE_START_ANGLE = 0.0; //degrees
+	public static final double GEAR_MIDDLE_SPEED = 2.5; //feet per second
 	
-	//Score Gear Right
+	// Gear Score Red Left
 	
-	public static final double GEAR_RIGHT_DISTANCE = 10.0; //feet
-	public static final double GEAR_RIGHT_GOAL_ANGLE = -40.0; //degrees
-	public static final double GEAR_RIGHT_START_ANGLE = -60.0; //degrees
+	public static final double GEAR_SCORE_RED_LEFT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_RED_LEFT_GOAL_ANGLE = 30.0;
+	public static final double GEAR_SCORE_RED_LEFT_START_ANGLE = 64.0;
+	
+	// Gear Score Red Right
+	
+	public static final double GEAR_SCORE_RED_RIGHT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_RED_RIGHT_GOAL_ANGLE = -40.0;
+	public static final double GEAR_SCORE_RED_RIGHT_START_ANGLE = -60.0;
+	
+	// Gear Score Blue Left
+	
+	public static final double GEAR_SCORE_BLUE_LEFT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_BLUE_LEFT_GOAL_ANGLE = 40.0;
+	public static final double GEAR_SCORE_BLUE_LEFT_START_ANGLE = 60.0;
+		
+	// Gear Score Blue Right
+		
+	public static final double GEAR_SCORE_BLUE_RIGHT_DISTANCE = 4.0;
+	public static final double GEAR_SCORE_BLUE_RIGHT_GOAL_ANGLE = -30.0;
+	public static final double GEAR_SCORE_BLUE_RIGHT_START_ANGLE = -64.0;
+
+	public static final double HOLD_CLIMB_MIDDLE = 180.0; //degrees
 }

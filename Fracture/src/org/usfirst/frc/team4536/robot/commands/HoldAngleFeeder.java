@@ -2,38 +2,55 @@ package org.usfirst.frc.team4536.robot.commands;
 
 import org.usfirst.frc.team4536.robot.OI;
 import org.usfirst.frc.team4536.utilities.Constants;
-import org.usfirst.frc.team4536.utilities.EnhancedTimer;
 import org.usfirst.frc.team4536.utilities.NavXException;
 import org.usfirst.frc.team4536.utilities.Utilities;
+
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *@author Theo
  *Class to drive while holding an angle, field-centric.
  */
-public class HoldAngle extends CommandBase {
-	private double forwardThrottle, strafeThrottle, turnThrottle, rAng, angleSpeed;
+public class HoldAngleFeeder extends CommandBase {
+	private double forwardThrottle, strafeThrottle, turnThrottle, rAng;
+	
+	SendableChooser teamChooser;
 
-    public HoldAngle(double robotAngle) {
+    public HoldAngleFeeder() {
         requires(driveTrain);
-        rAng = robotAngle;
+        
+        teamChooser = new SendableChooser();
+    	teamChooser.addDefault("Red", 0);
+    	teamChooser.addObject("Blue", 1);
+    	SmartDashboard.putData("Team Chooser", teamChooser);
     }
 
     protected void initialize() {
-    	forwardThrottle = 0.0;
-    	strafeThrottle = 0.0;
-    	turnThrottle = 0.0;
-    	//Keep the robot from spazzing out.
+    	forwardThrottle = 0;
+    	strafeThrottle = 0;
+    	turnThrottle = 0;
+    	
+    	switch ((int) teamChooser.getSelected().hashCode()) {
+    		case 1:
+    			rAng = Constants.BLUE_FEEDER_STATION_ANGLE;
+    		break;
+    		default:
+    			rAng = Constants.RED_FEEDER_STATION_ANGLE;
+    		break;
+    	}
     }
 
     protected void execute() {
     	
-    	try {   		
+    	try {
+    		
     		double speedCurveMagnitude = Utilities.speedCurve(OI.primaryRightStick.getModMagnitude(), Constants.HOLD_ANGLE_SPEED_CURVE);
     		forwardThrottle = Math.cos(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * speedCurveMagnitude;
         	strafeThrottle = Math.sin(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * Constants.FORWARD_STRAFE_RATIO * -speedCurveMagnitude;
 
         	double angleDif = Utilities.angleDifference(driveTrain.getNavX().getAngle(), rAng);
-        	turnThrottle = angleDif * Constants.HOLD_ANGLE_P_CONSTANT - angleSpeed * Constants.HOLD_ANGLE_D_CONSTANT;
+        	turnThrottle = angleDif * Constants.HOLD_ANGLE_P_CONSTANT;
         	
         	turnThrottle = Utilities.limit(turnThrottle, 1 - Constants.HOLD_ANGLE_SCALE_PARAM);
         	forwardThrottle = Utilities.scale(forwardThrottle, strafeThrottle, 1 - Math.abs(turnThrottle));
@@ -41,7 +58,6 @@ public class HoldAngle extends CommandBase {
         		
     		driveTrain.Drive(forwardThrottle, strafeThrottle, turnThrottle);
     		
-    		angleSpeed = driveTrain.getNavX().getRate();
     	}
     	catch(NavXException e) {
     		end();
