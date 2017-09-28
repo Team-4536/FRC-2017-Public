@@ -40,6 +40,7 @@ public class RobotMap {
 	public static final int ROTATE_RIGHT = 6;
 	public static final int ROTATE_LEFT = 7;
 	public static final int TANK_FIELD_CENTRIC = 8;
+	public static final int HOLD_MIDDLE_CLIMB = 9;
 
 	//Secondary Stick Buttons
 	public static final int SAO_SWITCH = 1;
