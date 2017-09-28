@@ -47,7 +47,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		setupOneCamera();
+		//setupOneCamera();
 		smartDashboardCommand = new SmartDashboardCommand();
 		driveProfile = new DriveMotionProfile(1.0, 5.0, 3.0, 0.0, 0.0);
 		cycleTimer = new EnhancedTimer();
@@ -58,7 +58,7 @@ public class Robot extends IterativeRobot {
 		
 	}
 	
-	private void setupCameras()
+	/**private void setupCameras()
 	{
 		Thread t = new Thread(() -> {
 			
@@ -97,7 +97,7 @@ public class Robot extends IterativeRobot {
 		UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(0);
 		camera1.setResolution(Constants.CAMERA_RESOLUTION_WIDTH, Constants.CAMERA_RESOLUTION_HEIGHT);
 		
-	}
+	}**/
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
