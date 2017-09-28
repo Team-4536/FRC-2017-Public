@@ -147,8 +147,8 @@ protected void execute() {
     			strafeThrottle += (prof.getStrafeVelocity(getTime()) - driveTrain.getStrafeRate(getTime())) * Constants.MOTION_PROFILE_VELOCITY_STRAFE;
     		}
     		catch(EncoderException e){
-    			forwardThrottle = 0;
-    			strafeThrottle = 0;
+    			forwardThrottle = 0.0;
+    			strafeThrottle = 0.0;
     		}
     	}
     		

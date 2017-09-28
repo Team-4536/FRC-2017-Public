@@ -27,9 +27,9 @@ public class HoldAngleFeeder extends CommandBase {
     }
 
     protected void initialize() {
-    	forwardThrottle = 0;
-    	strafeThrottle = 0;
-    	turnThrottle = 0;
+    	forwardThrottle = 0.0;
+    	strafeThrottle = 0.0;
+    	turnThrottle = 0.0;
     	
     	switch ((int) teamChooser.getSelected().hashCode()) {
     		case 1:
