@@ -143,12 +143,12 @@ protected void execute() {
     	
     	if(withEncoders == true){
     		try {
-    			forwardThrottle += (prof.getForwardVelocity(getTime()) - driveTrain.getForwardRate(getTime())) * Constants.DRIVE_ENCODER_FORWARD_PROPORTIONALITY_CONSTANT;
-    			strafeThrottle += (prof.getStrafeVelocity(getTime()) - driveTrain.getStrafeRate(getTime())) * Constants.DRIVE_ENCODER_STRAFE_PROPORTIONALITY_CONSTANT;
+    			forwardThrottle += (prof.getForwardVelocity(getTime()) - driveTrain.getForwardRate(getTime())) * Constants.MOTION_PROFILE_VELOCITY_FORWARD;
+    			strafeThrottle += (prof.getStrafeVelocity(getTime()) - driveTrain.getStrafeRate(getTime())) * Constants.MOTION_PROFILE_VELOCITY_STRAFE;
     		}
     		catch(EncoderException e){
-    			forwardThrottle = 0;
-    			strafeThrottle = 0;
+    			forwardThrottle = 0.0;
+    			strafeThrottle = 0.0;
     		}
     	}
     		

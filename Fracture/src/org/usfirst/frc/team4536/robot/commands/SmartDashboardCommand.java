@@ -61,10 +61,10 @@ public class SmartDashboardCommand extends CommandBase {
     	
     	//Encoders
     	try {
-    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(0));//timer.getTime()));
-    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(0));//timer.getTime()));
-    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(0));//timer.getTime()));
-    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(0));//timer.getTime()));
+    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(0.0));//timer.getTime()));
+    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(0.0));//timer.getTime()));
+    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(0.0));//timer.getTime()));
+    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(0.0));//timer.getTime()));
     	}
     	catch(EncoderException e) {
     	}

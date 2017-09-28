@@ -58,11 +58,11 @@ public class AutoChooser extends CommandBase {
     		break;
     		case 5:
     			setInitialAngle(Constants.GEAR_SCORE_BLUE_LEFT_START_ANGLE);
-    			(new GearScoreRedLeft()).start();
+    			(new GearScoreBlueLeft()).start();
     		break;
     		case 6:
     			setInitialAngle(Constants.GEAR_SCORE_BLUE_RIGHT_START_ANGLE);
-    			(new GearScoreRedRight()).start();
+    			(new GearScoreBlueRight()).start();
     		break;
     		default:
     			setInitialAngle(0.0);
