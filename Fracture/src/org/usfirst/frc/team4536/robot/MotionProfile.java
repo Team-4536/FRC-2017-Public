@@ -286,6 +286,7 @@ public class MotionProfile extends Profile{
 		 * @param time a certain period of time since the motionProfile began.
 		 * @return The distance the robot should have traveled by the end of that time.
 		 */
+		//We never got around to testing this last year. If it works we can get rid of the ridiculously long idealDistance method above.
 
 		public double newIdealDistance(double time){
 			 double idealDistanceTravelled = 0.0;
