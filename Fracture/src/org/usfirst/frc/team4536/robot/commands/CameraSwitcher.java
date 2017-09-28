@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CameraSwitcher extends Command {
+/**public class CameraSwitcher extends Command {
 
     public CameraSwitcher() {
         // Use requires() here to declare subsystem dependencies
@@ -36,4 +36,4 @@ public class CameraSwitcher extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}
+}**/
