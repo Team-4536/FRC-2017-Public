@@ -83,6 +83,7 @@ public class MotionProfile extends Profile{
 			return Math.cos(Math.toRadians(desiredAngle - robotAngle)) * idealVelocity(time);
 		}
 		
+		
 		/**
 		 * @author Theo
 		 * @param time how long its been since the profile started. In seconds.
@@ -264,6 +265,14 @@ public class MotionProfile extends Profile{
 			return distance;
 		}
 		
+		public double getForwardDistance(double time){
+			return idealDistance(time) * Math.cos(Math.toRadians(desiredAngle - robotAngle));
+		}
+		
+		public double getStrafeDistance(double time){
+			return idealDistance(time) * Math.sin(Math.toRadians(desiredAngle - robotAngle));
+		}
+		
 		/**
 		 * @author Theo
 		 * @return the angle we want the robot to be moving in. In degrees, relative to the field.
@@ -277,6 +286,7 @@ public class MotionProfile extends Profile{
 		 * @param time a certain period of time since the motionProfile began.
 		 * @return The distance the robot should have traveled by the end of that time.
 		 */
+		//We never got around to testing this last year. If it works we can get rid of the ridiculously long idealDistance method above.
 
 		public double newIdealDistance(double time){
 			 double idealDistanceTravelled = 0.0;

@@ -44,22 +44,25 @@ public class Constants {
 
 	//OI
 	
-	public static final double BLUE_FEEDER_STATION_ANGLE = -116.6;
-	public static final double RED_FEEDER_STATION_ANGLE = 116.6;
-	public static final double LEFT_PEG_ANGLE = 60.0;
-	public static final double MIDDLE_PEG_ANGLE = 0.0;
-	public static final double RIGHT_PEG_ANGLE = -60.0;
+	public static final double BLUE_FEEDER_STATION_ANGLE = -116.6; //degrees
+	public static final double RED_FEEDER_STATION_ANGLE = 116.6; //degrees
+	public static final double LEFT_PEG_ANGLE = 60.0; //degrees
+	public static final double MIDDLE_PEG_ANGLE = 0.0; //degrees
+	public static final double RIGHT_PEG_ANGLE = -60.0; //degrees
 	
 	//Profile constants
 	//These might need changing, they're mostly just copied from last year.
 
-	public static final double DEFAULT_SPEED = 2.0; //Measured in meters per second.
-	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in meters per second squared.
+	public static final double DEFAULT_SPEED = 3.0; //Measured in feet per second.
+	public static final double DEFAULT_ACCELERATION = 4.0; //Measured in feet per second squared.
 	public static final double PROFILE_TIMEOUT_OFFSET = 0.5; //Measured in seconds. Gives the motion profile a bit of extra time to do what it needs.
 
 	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_STRAFE = 20.2; //Ticks per inch
 	public static final double DRIVE_ENCODER_PROPORTIONALITY_CONSTANT_FORWARD = 20.2; //Ticks per inch
 
+	public static final double MOTION_PROFILE_VELOCITY_STRAFE = 0.1; //throttle per (feet per second)
+	public static final double MOTION_PROFILE_VELOCITY_FORWARD = 0.1; //throttle per (feet per second)
+	public static final double MOTION_PROFILE_NAVX_PORPORTIONALITY = 0.007;
     
 	//Angle Adjustments
 	
@@ -109,7 +112,6 @@ public class Constants {
 	
 	//Climb 
 	
-
 	public static final double SLOW_CLIMB_SPEED = 0.50; //between 0 and 1
 	public static final double CLIMB_ACCEL_LIMIT = 0.10;
 	public static final double OFF_GROUND_ANGLE = 30; //roll degrees (pitch on sidewinder)
@@ -132,27 +134,26 @@ public class Constants {
 	
 	// Gear Score Red Left
 	
-	public static final double GEAR_SCORE_RED_LEFT_DISTANCE = 4.0;
-	public static final double GEAR_SCORE_RED_LEFT_GOAL_ANGLE = 30.0;
-	public static final double GEAR_SCORE_RED_LEFT_START_ANGLE = 64.0;
+	public static final double GEAR_SCORE_RED_LEFT_DISTANCE = 4.0; //feet
+	public static final double GEAR_SCORE_RED_LEFT_GOAL_ANGLE = 30.0; //degrees
+	public static final double GEAR_SCORE_RED_LEFT_START_ANGLE = 64.0; //degrees
 	
 	// Gear Score Red Right
 	
-	public static final double GEAR_SCORE_RED_RIGHT_DISTANCE = 4.0;
-	public static final double GEAR_SCORE_RED_RIGHT_GOAL_ANGLE = -40.0;
-	public static final double GEAR_SCORE_RED_RIGHT_START_ANGLE = -60.0;
+	public static final double GEAR_SCORE_RED_RIGHT_DISTANCE = 4.0; //feet
+	public static final double GEAR_SCORE_RED_RIGHT_GOAL_ANGLE = -40.0; //degrees
+	public static final double GEAR_SCORE_RED_RIGHT_START_ANGLE = -60.0; //degrees
 	
 	// Gear Score Blue Left
 	
-	public static final double GEAR_SCORE_BLUE_LEFT_DISTANCE = 4.0;
-	public static final double GEAR_SCORE_BLUE_LEFT_GOAL_ANGLE = 40.0;
-	public static final double GEAR_SCORE_BLUE_LEFT_START_ANGLE = 60.0;
+	public static final double GEAR_SCORE_BLUE_LEFT_DISTANCE = 4.0; //feet
+	public static final double GEAR_SCORE_BLUE_LEFT_GOAL_ANGLE = 40.0; //degrees
+	public static final double GEAR_SCORE_BLUE_LEFT_START_ANGLE = 60.0; //degrees
 		
 	// Gear Score Blue Right
 		
-	public static final double GEAR_SCORE_BLUE_RIGHT_DISTANCE = 4.0;
-	public static final double GEAR_SCORE_BLUE_RIGHT_GOAL_ANGLE = -30.0;
-	public static final double GEAR_SCORE_BLUE_RIGHT_START_ANGLE = -64.0;
-
+	public static final double GEAR_SCORE_BLUE_RIGHT_DISTANCE = 4.0; //feet
+	public static final double GEAR_SCORE_BLUE_RIGHT_GOAL_ANGLE = -30.0; //degrees
+	public static final double GEAR_SCORE_BLUE_RIGHT_START_ANGLE = -64.0; //degrees
 	public static final double HOLD_CLIMB_MIDDLE = 180.0; //degrees
 }
