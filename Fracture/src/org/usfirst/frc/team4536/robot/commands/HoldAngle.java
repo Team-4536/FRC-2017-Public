@@ -22,7 +22,6 @@ public class HoldAngle extends CommandBase {
     	forwardThrottle = 0.0;
     	strafeThrottle = 0.0;
     	turnThrottle = 0.0;
-    	//Keep the robot from spazzing out.
     }
 
     protected void execute() {

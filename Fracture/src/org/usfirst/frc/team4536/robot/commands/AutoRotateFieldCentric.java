@@ -22,7 +22,6 @@ public class AutoRotateFieldCentric extends CommandBase {
     	strafeThrottle = 0.0;
     	turnThrottle = 0.0;
     	lastAngle = driveTrain.getLastDesiredAngle(); 
-    	//Keep the robot from spazzing out.
     }
     
     protected void execute() {
@@ -34,7 +33,7 @@ public class AutoRotateFieldCentric extends CommandBase {
         	strafeThrottle = Math.sin(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * Constants.FORWARD_STRAFE_RATIO * -speedCurveMagnitude;
         	 
         	if(OI.primaryRightStick.getMagnitude() < Constants.DEAD_ZONE){		
-        		 turnThrottle = 0.0; //Constants.AUTO_ROTATE_P_CONSTANT * Utilities.shortestAngle(driveTrain.getNavX().getAngle(), lastAngle);
+        		 turnThrottle = 0.0;
         	 }
         	 else{
         		turnThrottle = Constants.AUTO_ROTATE_P_CONSTANT * Utilities.shortestAngle(driveTrain.getNavX().getAngle(), OI.primaryRightStick.getDirectionDegrees());
