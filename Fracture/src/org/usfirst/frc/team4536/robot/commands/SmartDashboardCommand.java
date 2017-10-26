@@ -55,16 +55,15 @@ public class SmartDashboardCommand extends CommandBase {
     	try {
 			SmartDashboard.putNumber("Derivative", driveTrain.getNavX().getRate());
 		} catch (NavXException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
     	
     	//Encoders
     	try {
-    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(0.0));//timer.getTime()));
-    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(0.0));//timer.getTime()));
-    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(0.0));//timer.getTime()));
-    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(0.0));//timer.getTime()));
+    	SmartDashboard.putNumber("Forward Encoder", driveTrain.getForwardEncoder(0.0));
+    	SmartDashboard.putNumber("Forward Encoder Rate", driveTrain.getForwardRate(0.0));
+    	SmartDashboard.putNumber("Strafe Encoder", driveTrain.getStrafeEncoder(0.0));
+    	SmartDashboard.putNumber("Strafe Encoder Rate", driveTrain.getStrafeRate(0.0));
     	}
     	catch(EncoderException e) {
     	}

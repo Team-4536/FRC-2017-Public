@@ -11,7 +11,7 @@ public class Constants {
 	public static final double FORWARD_SPEED_CURVE = 0.0;
 	public static final double TURN_SPEED_CURVE = 0.0;
 	public static final double STRAFE_SPEED_CURVE = 0.0;
-	public static final double SCALE_PARAM = 0.7; //TODO this needs fine tuning
+	public static final double SCALE_PARAM = 0.7; 
 	public static final double FORWARD_STICTION = 0.17;
 	public static final double STRAFE_STICTION = 0.22;
 	public static final double DRIVE_TRAIN_MAX_VELOCITY = 14.0; //feet per second Old value: 13
@@ -106,7 +106,7 @@ public class Constants {
 	// HoldAngle
 	
 	public static final double HOLD_ANGLE_P_CONSTANT = 0.02; //Throttle per degree
-	public static final double HOLD_ANGLE_D_CONSTANT = 0.02; //TODO find a value.(Throttle per degree per second)
+	public static final double HOLD_ANGLE_D_CONSTANT = 0.02; //(Throttle per degree per second)
 	public static final double HOLD_ANGLE_SCALE_PARAM = 0.6;
 	public static final double HOLD_ANGLE_SPEED_CURVE = 1.0; //unitless
 	
@@ -121,7 +121,7 @@ public class Constants {
 	
 	public static final double TOP_POSITION = 0.73; //0.65;
 	public static final double GEAR_POSITION = 0.36;
-	public static final double MIDDLE_POSITION = 0.48;//TODO tweak later
+	public static final double MIDDLE_POSITION = 0.48;
 	public static final double UPPER_LIMIT = 0.74; //0.65;
 	public static final double LOWER_LIMIT = 0.35;
 	

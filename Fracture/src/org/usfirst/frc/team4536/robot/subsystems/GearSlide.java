@@ -21,7 +21,6 @@ public class GearSlide extends Subsystem {
 	public GearSlide(int motorPort) {
 		gearSlideMotor = new Servo(motorPort);
 	}
-	//TODO will not work until we replace with servo stuff
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

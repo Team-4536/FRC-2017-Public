@@ -7,7 +7,6 @@ public abstract class Profile {
 	 * @param time The amount of time since the profile has started
 	 * @returns The throttle the robot should be at
 	 */
-	//public abstract double throttle(double time);
 	
 	/**
 	 * @author Jasper

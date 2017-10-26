@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * @author Noah
- * This auto mode does nothing
+ * This extremely useful auto mode does absolutely nothing
  */
 public class DoNothing extends CommandBase {
 

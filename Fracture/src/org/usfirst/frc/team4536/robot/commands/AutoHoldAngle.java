@@ -28,7 +28,6 @@ public class AutoHoldAngle extends CommandBase {
     	strafeThrottle = 0.0;
     	turnThrottle = 0.0;
     	timer.startTimer();
-    	//Keep the robot from spazzing out.
     }
 
     protected void execute() {
