@@ -21,7 +21,6 @@ public class TankDriveAutoRotate extends CommandBase {
     	strafeThrottle = 0.0;
     	turnThrottle = 0.0;
     	lastAngle = driveTrain.getLastDesiredAngle(); 
-    	//Keep the robot from spazzing out.
     }
     
     protected void execute() {
@@ -31,7 +30,7 @@ public class TankDriveAutoRotate extends CommandBase {
         	forwardThrottle = Math.cos(Math.toRadians(driveTrain.getNavX().getAngle() - OI.primaryRightStick.getDirectionDegrees())) * speedCurveMagnitude;
         	 
         	if(OI.primaryRightStick.getMagnitude() < Constants.DEAD_ZONE){		
-        		 turnThrottle = 0; //Constants.AUTO_ROTATE_P_CONSTANT * Utilities.shortestAngle(driveTrain.getNavX().getAngle(), lastAngle);
+        		 turnThrottle = 0;
         	 }
         	 else{
         		turnThrottle = Constants.TANK_ROTATE_P_CONSTANT * Utilities.shortestAngle(driveTrain.getNavX().getAngle(), OI.primaryRightStick.getDirectionDegrees());

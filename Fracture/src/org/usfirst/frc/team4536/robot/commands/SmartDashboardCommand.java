@@ -55,7 +55,6 @@ public class SmartDashboardCommand extends CommandBase {
     	try {
 			SmartDashboard.putNumber("Derivative", driveTrain.getNavX().getRate());
 		} catch (NavXException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
     	
