@@ -113,7 +113,7 @@ public class OI {
 		rotateLeft.whenReleased(new AutoRotateFieldCentric());
 		
 		switchCamera = new JoystickButton(secondaryStick, RobotMap.SWITCH_CAMERA);
-		switchCamera.whenPressed(new CameraSwitcher());
+		//switchCamera.whenPressed(new CameraSwitcher());
 		
 		autoClimb = new JoystickButton(secondaryStick, RobotMap.AUTO_CLIMB);
 		autoClimb.whenPressed(new OffGround());

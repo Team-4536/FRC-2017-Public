@@ -36,7 +36,7 @@ public class Constants {
 	public static final double CROSS_BASELINE_RUN_TIME = 2.0;
 	public static final double CROSS_BASELINE_TIMEOUT = 5.0;
 
-	public static final double COLLISION_DETECTION_THRESHOLD = 2.0;
+	public static final double COLLISION_DETECTION_THRESHOLD = 1.0;
 	
 	public static enum PEG_POSITION {LEFT_PEG, MIDDLE_PEG, RIGHT_PEG};
 	
